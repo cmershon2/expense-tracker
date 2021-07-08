@@ -1,0 +1,42 @@
+{
+  "name": "acorn-html-admin-template",
+  "version": "1.0.0",
+  "description": "Acorn Html Admin Template - Bootstrap v5",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier src/**/*.{html,js,scss} --write",
+    "precommit": "lint-staged",
+    "gulp": "gulp"
+  },
+  "keywords": [
+    "Bootstrap",
+    "Admin",
+    "Acorn",
+    "Html"
+  ],
+  "author": "ColoredStrategies",
+  "lint-staged": {
+    "src/**/*.{html,js,scss}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "devDependencies": {
+    "browser-sync": "2.26.14",
+    "del": "4.1.1",
+    "gulp": "4.0.2",
+    "gulp-clean-css": "4.3.0",
+    "gulp-htmlmin": "5.0.1",
+    "gulp-jsonminify": "1.1.0",
+    "gulp-sass": "4.1.0",
+    "gulp-terser": "2.0.1",
+    "husky": "4.3.7",
+    "lint-staged": "10.5.4",
+    "prettier": "2.2.1"
+  }
+}

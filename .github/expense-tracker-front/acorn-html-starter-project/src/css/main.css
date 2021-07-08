@@ -1,0 +1,38 @@
+/* This file is reserved for overriding and extending the template styles. */
+
+.roller-text{
+    display: inline-block;
+	position: relative;
+}
+
+.roller-text p{
+	display: inline-block;
+	opacity: 0;
+	animation-timing-function: ease;
+}
+
+.roller-text p:nth-child(1){
+	animation: rollDown 4s forwards;
+}
+
+@keyframes rollDown {
+	0%{
+		top: -200px;
+		transform: rotateX(-90deg);
+	}
+	33%{
+		top: -74px;
+		transform: rotateX(0deg);
+		opacity: 1;
+	}
+	66%{
+		top: -74px;
+		transform: rotateX(0deg);
+		opacity: 1;
+	}
+	100%{
+		top: 50px;
+		transform: rotateX(30deg);
+		opacity: 0;
+	}
+}
