@@ -1,6 +1,6 @@
 drop database expensetrackerdb;
 drop user expensetracker;
-create user expensetracker with password '--';
+create user expensetracker with password 'tailbone24';
 create database expensetrackerdb with template=template0 owner=expensetracker;
 \connect expensetrackerdb;
 alter default privileges grant all on tables to expensetracker;

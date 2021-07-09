@@ -25,4 +25,10 @@ jobs:
         distribution: 'adopt'
 
     - name: Build with Maven
+      env:
+        API_SECRET_KEY: ${{ secrets.API_SECRET_KEY }}
+        SPRING_USER: ${{ secrets.SPRING_USER }}
+        SPRING_PASS: ${{ secrets.SPRING_PASS }}
+        POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
+        POSTGRES_PASS: ${{ secrets.POSTGRES_PASS }}
       run: mvn -B package --file .github/expense-tracker-api/pom.xml
