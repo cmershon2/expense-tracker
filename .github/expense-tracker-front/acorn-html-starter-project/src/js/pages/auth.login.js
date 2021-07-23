@@ -7,7 +7,7 @@
  *
  */
 
- class AuthLogin {
+class AuthLogin {
     constructor() {
       // Initialization of the page plugins
       this._initForm();
@@ -16,6 +16,7 @@
     // Form validation
     _initForm() {
       const form = document.getElementById('loginForm');
+      const errorHandler = document.getElementById('loginErrorHandler');
       if (!form) {
         return;
       }
@@ -30,10 +31,7 @@
           email: {
             email: 'Your email address must be in correct format!',
           },
-          error: {
-            error: "Invalid email and password combination!"
-          }
-        },
+        }
       };
       jQuery(form).validate(validateOptions);
       form.addEventListener('submit', (event) => {
@@ -54,12 +52,15 @@
               "Content-Type": "application/json; charset=utf-8"
             }
           }).then(response => {
-              localStorage.setItem("token", 'Bearer '+response['token']);
+            localStorage.setItem("auth-token", 'Bearer '+response['token']);
+            location.reload();
           }).catch(error => {
-              $('#loginErrorHandler');
+            errorHandler.style.display = "initial";
+            errorHandler.classList.remove("fade-text-active");
+            void errorHandler.offsetWidth;
+            errorHandler.classList.add("fade-text-active");
           })
-          
         }
       });
     }
-  }
+}

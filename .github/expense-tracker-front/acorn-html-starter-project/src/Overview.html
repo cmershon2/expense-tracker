@@ -138,7 +138,7 @@
                       </a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a onClick="tokenStorage.signOut()">
                         <i data-cs-icon="logout" class="me-2" data-cs-size="17"></i>
                         <span class="align-middle">Logout</span>
                       </a>
@@ -1009,8 +1009,10 @@
     <!-- Vendor Scripts End -->
 
     <!-- Template Base Scripts Start -->
+    <script src="js/auth/authentication.js"></script>
     <script src="font/CS-Line/csicons.min.js"></script>
     <script src="js/base/helpers.js"></script>
+    <script src="js/auth/token-storage.js"></script>
     <script src="js/base/globals.js"></script>
     <script src="js/base/nav.js"></script>
     <script src="js/base/search.js"></script>
