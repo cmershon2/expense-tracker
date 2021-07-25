@@ -17,6 +17,7 @@
     _initForm() {
 
       const form = document.getElementById('registerForm');
+      const errorHandler = document.getElementById('registerErrorHandler');
       if (!form) {
         return;
       }
@@ -82,9 +83,13 @@
               "Content-Type": "application/json; charset=utf-8"
             }
           }).then(response => {
-              console.log(response);
+            localStorage.setItem("auth-token", 'Bearer '+response['token']);
+            location.reload();
           }).catch(error => {
-              console.log(error);
+            errorHandler.style.display = "initial";
+            errorHandler.classList.remove("fade-text-active");
+            void errorHandler.offsetWidth;
+            errorHandler.classList.add("fade-text-active");
           })
 
           return;
