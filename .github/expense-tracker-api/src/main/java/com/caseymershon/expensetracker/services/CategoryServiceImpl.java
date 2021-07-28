@@ -28,8 +28,8 @@ public class CategoryServiceImpl implements CategoryService{
     }
 
     @Override
-    public Category addCategory(Integer userId, String title, String description) throws EtBadRequestException {
-        int categoryId = categoryRepository.create(userId, title, description);
+    public Category addCategory(Integer userId, String title, String icon, String description) throws EtBadRequestException {
+        int categoryId = categoryRepository.create(userId, title, icon, description);
         return categoryRepository.findById(userId, categoryId);
     }
 

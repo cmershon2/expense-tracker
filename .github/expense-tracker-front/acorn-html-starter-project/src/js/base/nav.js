@@ -77,9 +77,20 @@ class Nav {
       this._disablePinButton();
     }
 
+    this._initAddUserName();
     this._initMenuPlacement();
     this._addListeners();
   }
+
+  _initAddUserName() {
+    const nameContainer = $('#user-name');
+
+    if(nameContainer != null){
+      let user = tokenStorage.getUser();
+      nameContainer.html(user['first-name']+' '+user['last-name']);
+    }
+  }
+
 
   _initMenuVariables() {
     this.menuVertical = document.createElement('DIV');

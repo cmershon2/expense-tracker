@@ -221,9 +221,9 @@
     if (typeof DashboardDefault !== 'undefined') {
       let dashboardDefault = new DashboardDefault();
     }
-    // dashboard.analytic.js initialization
-    if (typeof DashboardAnalytic !== 'undefined') {
-      let dashboardAnalytic = new DashboardAnalytic();
+    // overview.js initialization
+    if (typeof Overview !== 'undefined') {
+      let overview = new Overview();
     }
     // dashboard.visual.js initialization
     if (typeof DashboardVisual !== 'undefined') {

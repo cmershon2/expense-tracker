@@ -6,9 +6,10 @@ public class Category {
     private Integer userId;
     private String title;
     private String description;
+    private String icon;
     private Double totalExpense;
 
-    public Category(Integer categoryId, Integer userId, String title, String description, Double totalExpense) {
+    public Category(Integer categoryId, Integer userId, String title, String description, String icon, Double totalExpense) {
         this.setCategoryId(categoryId);
         this.setUserId(userId);
         this.setTitle(title);
@@ -30,6 +31,14 @@ public class Category {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
     }
 
     public String getTitle() {

@@ -13,7 +13,7 @@ public interface CategoryService {
 
     Category fetchCategoryById(Integer userId, Integer categoryId) throws EtResourceNotFoundException;
 
-    Category addCategory(Integer userId, String title, String description) throws EtBadRequestException;
+    Category addCategory(Integer userId, String title, String icon, String description) throws EtBadRequestException;
 
     void updateCategory(Integer userId, Integer categoryId, Category category) throws EtBadRequestException;
 

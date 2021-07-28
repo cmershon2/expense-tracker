@@ -39,7 +39,8 @@ public class CategoryResource {
         int userId = (Integer) request.getAttribute("userId");
         String title = (String) categoryMap.get("title");
         String description = (String) categoryMap.get("description");
-        Category category = categoryService.addCategory(userId, title, description);
+        String icon = (String) categoryMap.get("icon");
+        Category category = categoryService.addCategory(userId, title, description, icon);
         return new ResponseEntity<>(category, HttpStatus.CREATED);
     }
 

@@ -83,7 +83,12 @@
               "Content-Type": "application/json; charset=utf-8"
             }
           }).then(response => {
+            let user = {
+              'first-name': response['firstName'],
+              'last-name': response['lastName']
+            };
             localStorage.setItem("auth-token", 'Bearer '+response['token']);
+            localStorage.setItem("auth-user", user);
             location.reload();
           }).catch(error => {
             errorHandler.style.display = "initial";

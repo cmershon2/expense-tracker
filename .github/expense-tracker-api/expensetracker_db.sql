@@ -18,7 +18,8 @@ create table et_categories(
     category_id integer primary key not null,
     user_id integer not null,
     title varchar(20) not null,
-    description varchar(255) not null
+    description varchar(255) not null,
+    icon varchar(255) not null
 );
 
 alter table et_categories add constraint cat_users_fk

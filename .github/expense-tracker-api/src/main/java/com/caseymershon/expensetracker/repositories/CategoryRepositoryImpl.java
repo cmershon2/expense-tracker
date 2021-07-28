@@ -25,8 +25,8 @@ public class CategoryRepositoryImpl  implements CategoryRepository{
             "COALESCE(SUM(T.AMOUNT), 0) TOTAL_EXPENSE " +
             "FROM ET_TRANSACTIONS T RIGHT OUTER JOIN ET_CATEGORIES C ON C.CATEGORY_ID = T.CATEGORY_ID " +
             "WHERE C.USER_ID = ? AND C.CATEGORY_ID = ? GROUP BY C.CATEGORY_ID";
-    private static final String SQL_CREATE = "INSERT INTO ET_CATEGORIES (CATEGORY_ID, USER_ID, TITLE, DESCRIPTION) VALUES(NEXTVAL('ET_CATEGORIES_SEQ'), ?, ?, ?)";
-    private static final String SQL_UPDATE = "UPDATE ET_CATEGORIES SET TITLE = ?, DESCRIPTION = ? " +
+    private static final String SQL_CREATE = "INSERT INTO ET_CATEGORIES (CATEGORY_ID, USER_ID, TITLE, ICON, DESCRIPTION) VALUES(NEXTVAL('ET_CATEGORIES_SEQ'), ?, ?, ?)";
+    private static final String SQL_UPDATE = "UPDATE ET_CATEGORIES SET TITLE = ?, ICON = ?, DESCRIPTION = ? " +
             "WHERE USER_ID = ? AND CATEGORY_ID = ?";
     private static final String SQL_DELETE_CATEGORY = "DELETE FROM ET_CATEGORIES WHERE USER_ID = ? AND CATEGORY_ID = ?";
     private static final String SQL_DELETE_ALL_TRANSACTIONS = "DELETE FROM ET_TRANSACTIONS WHERE CATEGORY_ID = ?";
@@ -49,7 +49,7 @@ public class CategoryRepositoryImpl  implements CategoryRepository{
     }
 
     @Override
-    public Integer create(Integer userId, String title, String description) throws EtBadRequestException {
+    public Integer create(Integer userId, String title, String description, String icon) throws EtBadRequestException {
         try {
             KeyHolder keyHolder = new GeneratedKeyHolder();
             jdbcTemplate.update(connection -> {
@@ -57,6 +57,7 @@ public class CategoryRepositoryImpl  implements CategoryRepository{
                 ps.setInt(1, userId);
                 ps.setString(2, title);
                 ps.setString(3, description);
+                ps.setString(4, icon);
                 return ps;
             }, keyHolder);
             return (Integer) keyHolder.getKeys().get("CATEGORY_ID");
@@ -89,6 +90,7 @@ public class CategoryRepositoryImpl  implements CategoryRepository{
                 rs.getInt("USER_ID"),
                 rs.getString("TITLE"),
                 rs.getString("DESCRIPTION"),
+                rs.getString("ICON"),
                 rs.getDouble("TOTAL_EXPENSE"));
     });
 }
