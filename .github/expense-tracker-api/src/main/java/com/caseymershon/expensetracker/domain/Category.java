@@ -13,6 +13,7 @@ public class Category {
         this.setCategoryId(categoryId);
         this.setUserId(userId);
         this.setTitle(title);
+        this.setIcon(icon);
         this.setDescription(description);
         this.setTotalExpense(totalExpense);
     }
