@@ -1,10 +1,6 @@
 [
     {
-        "label": "Horizontal",
-        "url": "Horizontal.html"
-    },
-    {
-        "label": "Vertical",
-        "url": "Vertical.html"
+        "label": "Overview",
+        "url": "Overview.html"
     }
 ]

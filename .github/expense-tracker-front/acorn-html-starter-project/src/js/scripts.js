@@ -26,14 +26,6 @@
     }
   }
 
-  // Icon pages initialization
-  _initIcons() {
-    // interface.icons.js initialization
-    if (typeof Icons !== 'undefined') {
-      const icons = new Icons();
-    }
-  }
-
   // Components pages initialization
   _initComponents() {
     // cards.js initialization
@@ -296,6 +288,14 @@
     // profile.standard.js initialization
     if (typeof ProfileStandard !== 'undefined') {
       const profileStandard = new ProfileStandard();
+    }
+  }
+
+  // Icon pages initialization
+  _initIcons() {
+    // interface.icons.js initialization
+    if (typeof Icons !== 'undefined') {
+      const icons = new Icons();
     }
   }
 }

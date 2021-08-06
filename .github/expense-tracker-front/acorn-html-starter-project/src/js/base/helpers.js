@@ -23,6 +23,40 @@ class Helpers {
     };
   }
 
+  static async getCategories(){
+    return new Promise(function(res,rej){
+      jQuery.ajax({
+        url: "https://expense.projecthost.dev/api/categories",
+        method: "GET",
+        contentType: "application/json; charset=utf-8",
+        headers: {
+          "Authorization": tokenStorage.getToken()
+        }
+      }).then(response => {
+        res(response);
+      }).catch(error => {
+        rej(error);
+      })
+    });
+  }
+
+  static async getTransaction(categoryId){
+    return new Promise(function(res,rej){
+      jQuery.ajax({
+        url: `https://expense.projecthost.dev/api/categories/${categoryId}/transactions`,
+        method: "GET",
+        contentType: "application/json; charset=utf-8",
+        headers: {
+          "Authorization": tokenStorage.getToken()
+        }
+      }).then(response => {
+        res(response);
+      }).catch(error => {
+        rej(error);
+      })
+    });
+  }
+
   // Checks the given array and returns a value plus one from the greatest prop value
   static NextId(data, prop) {
     if (!data) {
@@ -78,4 +112,65 @@ class Helpers {
     const path = paramPath.startsWith('/') ? paramPath.slice(1, paramPath.length) : paramPath;
     return `${prefix}${path}`;
   }
+
+  static hex(c){
+    var s = "0123456789abcdef";
+    var i = parseInt (c);
+    if (i == 0 || isNaN (c))
+      return "00";
+    i = Math.round (Math.min (Math.max (0, i), 255));
+    return s.charAt ((i - i % 16) / 16) + s.charAt (i % 16);
+  }
+
+  // Convert an RGB triplet to a hex string
+  static convertToHex(rgb){
+    return Helpers.hex(rgb[0]) + Helpers.hex(rgb[1]) + Helpers.hex(rgb[2]);
+  }
+
+  // Remove '#' in color hex string
+  static trim (s){
+    return (s.charAt(0) == '#') ? s.substring(1, 7) : s
+  }
+
+  // Convert a hex string to an RGB triplet
+  static convertToRGB (hex) {
+    var color = [];
+    color[0] = parseInt((Helpers.trim(hex)).substring (0, 2), 16);
+    color[1] = parseInt((Helpers.trim(hex)).substring (2, 4), 16);
+    color[2] = parseInt((Helpers.trim(hex)).substring (4, 6), 16);
+    return color;
+  }
+
+  static generateColor(colorStart,colorEnd,colorCount){
+
+    // The beginning of your gradient
+    var start = Helpers.convertToRGB(colorStart);    
+  
+    // The end of your gradient
+    var end = Helpers.convertToRGB(colorEnd);    
+  
+    // The number of colors to compute
+    var len = colorCount;
+  
+    //Alpha blending amount
+    var alpha = 0.0;
+  
+    var range = [];
+    
+    for (let i = 0; i < len; i++) {
+      var c = [];
+      alpha += (1.0/len);
+      
+      c[0] = start[0] * alpha + (1 - alpha) * end[0];
+      c[1] = start[1] * alpha + (1 - alpha) * end[1];
+      c[2] = start[2] * alpha + (1 - alpha) * end[2];
+  
+      range.push(c.toString());
+      
+    }
+    
+    return range;
+    
+  }
+
 }

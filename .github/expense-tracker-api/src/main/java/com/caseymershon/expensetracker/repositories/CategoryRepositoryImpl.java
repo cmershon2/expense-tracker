@@ -69,7 +69,7 @@ public class CategoryRepositoryImpl  implements CategoryRepository{
     @Override
     public void update(Integer userId, Integer categoryId, Category category) throws EtBadRequestException {  
         try{
-            jdbcTemplate.update(SQL_UPDATE, new Object[]{category.getTitle(), category.getDescription(), userId, categoryId});
+            jdbcTemplate.update(SQL_UPDATE, new Object[]{category.getTitle(), category.getDescription(), category.getIcon(),userId, categoryId});
         } catch (Exception e) {
             throw new EtBadRequestException("Invalid request");
         }
