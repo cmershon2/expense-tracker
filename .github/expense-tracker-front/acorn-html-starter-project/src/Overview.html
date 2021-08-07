@@ -268,23 +268,23 @@
               </div>
               
 
-              <!-- Sales Start -->
-              <div data-title="Expense Breakdown" data-intro="Here, you are able to view your breakdown of expenses for each category. You can click each category's icon to filter on each category." data-step="2">
+              <!-- Category Breakdown start -->
+              <div data-title="Category Breakdown" data-intro="Here, you are able to view your breakdown of expenses for each category. You can click each category's icon to filter on each category." data-step="2">
                 <div class="d-flex">
                   <div class="dropdown-as-select me-3" data-setActive="false" data-childSelector="span">
                     <a class="pe-0 pt-0 align-top lh-1 dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
                       <span class="small-title"></span>
                     </a>
                     <div class="dropdown-menu font-standard">
-                      <div class="nav flex-column" role="tablist">
-                        <a class="active dropdown-item text-medium" href="#" aria-selected="true" role="tab">This Week's</a>
-                        <a class="dropdown-item text-medium" href="#" aria-selected="false" role="tab">This Month's</a>
-                        <a class="dropdown-item text-medium" href="#" aria-selected="false" role="tab">This Year's</a>
-                        <a class="dropdown-item text-medium" href="#" aria-selected="false" role="tab">Custom</a>
+                      <div class="nav flex-column" role="tablist" id='category-breakdown-filter'>
+                        <a class="active dropdown-item text-medium" dato-value="w" href="#" aria-selected="true" role="tab">This Week's</a>
+                        <a class="dropdown-item text-medium" dato-value="m" href="#" aria-selected="false" role="tab">This Month's</a>
+                        <a class="dropdown-item text-medium" dato-value="y" href="#" aria-selected="false" role="tab">This Year's</a>
+                        <a class="dropdown-item text-medium" dato-value="c" href="#" aria-selected="false" role="tab">Custom</a>
                       </div>
                     </div>
                   </div>
-                  <h2 class="small-title">Expense Breakdown</h2>
+                  <h2 class="small-title">Category Breakdown</h2>
                 </div>
                 <div class="card mb-5 sh-40">
                   <div class="card-body">
@@ -326,7 +326,7 @@
                   </div>
                 </div>
               </div>
-              <!-- Sales End -->
+              <!-- Category Breakdown End -->
             </div>
             <!-- Expenses Start -->
             <div class="col-12 col-lg-6 mb-5" data-title="Expense List" data-intro="The Expense List will show all of your expenses, their category, and what percentage of their category they take up. You can filter on a given expense or category by clicking the filter button in the upper right-hand corner." data-step="3">
@@ -370,216 +370,64 @@
               
               <div class="scroll-out">
                 <div class="scroll-by-count" data-count="8">
+                  <div id="expense-stats">
 
-                  <div class="card mb-2 sh-10 sh-md-8">
-                    <div class="card-body pt-0 pb-0 h-100">
-                      <div class="row g-0 d-flex h-100 align-items-center">
-                        <div class="col d-flex align-items-center mb-2">
-                          <a href="#" class="custom-legend-container body-link text-truncate"></a>
-                          <template class="custom-legend-item">
-                            <div class="text-small text mt-2"></div>
-                            <div class="cta-3 text-primary value"></div>
-                          </template>
-                        </div>
-                        <div class="col d-flex align-items-center text-muted text-medium mb-1">
-                          <span class="badge bg-outline-tertiary me-1">STOCK</span>
-                        </div>
+                    <div class="card mb-2 sh-10 sh-md-8">
+                      <div class="card-body pt-0 pb-0 h-100">
+                        
+                      </div>
+                    </div>
+                    <div class="card mb-2 sh-10 sh-md-8">
+                      <div class="card-body pt-0 pb-0 h-100">
+                        
+                      </div>
+                    </div>
+                    <div class="card mb-2 sh-10 sh-md-8">
+                      <div class="card-body pt-0 pb-0 h-100">
+                        
+                      </div>
+                    </div>
+                    <div class="card mb-2 sh-10 sh-md-8">
+                      <div class="card-body pt-0 pb-0 h-100">
+                        
+                      </div>
+                    </div>
+                    <div class="card mb-2 sh-10 sh-md-8">
+                      <div class="card-body pt-0 pb-0 h-100">
+                        
+                      </div>
+                    </div>
+                    <div class="card mb-2 sh-10 sh-md-8">
+                      <div class="card-body pt-0 pb-0 h-100">
+                        
+                      </div>
+                    </div>
+                    <div class="card mb-2 sh-10 sh-md-8">
+                      <div class="card-body pt-0 pb-0 h-100">
 
-                        <div class="col-auto">
-                          <canvas id="smallDoughnutChart1" class="col-auto sw-6 sh-6"></canvas>
-                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="card mb-2 sh-10 sh-md-8">
-                    <div class="card-body pt-0 pb-0 h-100">
-                      <div class="row g-0 h-100 align-content-center">
-                        <div class="col-12 col-md-5 d-flex align-items-center mb-2 mb-md-0">
-                          <a href="Pages.Portfolio.Detail.html" class="body-link text-truncate">Cheesymite Scroll</a>
-                        </div>
-                        <div class="col-4 col-md-2 d-flex align-items-center text-muted text-medium mb-1 mb-md-0">
-                          <span class="badge bg-outline-tertiary me-1">STOCK</span>
-                        </div>
-                        <div class="col-4 col-md-3 d-flex align-items-center text-medium text-danger justify-content-center">
-                          <i data-cs-icon="arrow-bottom" data-cs-size="14" class="me-1"></i>
-                          <span class="text-medium">-13.4%</span>
-                        </div>
-                        <div class="col-4 col-md-2 d-flex align-items-center justify-content-end text-muted text-medium">
-                          <span>$ 4.50</span>
-                        </div>
+                    <div class="card mb-2 sh-10 sh-md-8">
+                      <div class="card-body pt-0 pb-0 h-100">
+                        
                       </div>
                     </div>
-                  </div>
-                  <div class="card mb-2 sh-10 sh-md-8">
-                    <div class="card-body pt-0 pb-0 h-100">
-                      <div class="row g-0 h-100 align-content-center">
-                        <div class="col-12 col-md-5 d-flex align-items-center mb-2 mb-md-0">
-                          <a href="Pages.Portfolio.Detail.html" class="body-link text-truncate">Cholermüs</a>
-                        </div>
-                        <div class="col-4 col-md-2 d-flex align-items-center text-muted text-medium mb-1 mb-md-0">
-                          <span class="badge bg-outline-primary me-1">SALE</span>
-                        </div>
-                        <div class="col-4 col-md-3 d-flex align-items-center text-medium text-success justify-content-center">
-                          <i data-cs-icon="arrow-top" data-cs-size="14" class="me-1"></i>
-                          <span class="text-medium">+9.7%</span>
-                        </div>
-                        <div class="col-4 col-md-2 d-flex align-items-center justify-content-end text-muted text-medium">
-                          <span>$ 1.75</span>
-                        </div>
+                    <div class="card mb-2 sh-10 sh-md-8">
+                      <div class="card-body pt-0 pb-0 h-100">
+                        
                       </div>
                     </div>
-                  </div>
-                  <div class="card mb-2 sh-10 sh-md-8">
-                    <div class="card-body pt-0 pb-0 h-100">
-                      <div class="row g-0 h-100 align-content-center">
-                        <div class="col-12 col-md-5 d-flex align-items-center mb-2 mb-md-0">
-                          <a href="Pages.Portfolio.Detail.html" class="body-link text-truncate">Ruisreikäleipä</a>
-                        </div>
-                        <div class="col-4 col-md-2 d-flex align-items-center text-muted text-medium mb-1 mb-md-0">
-                          <span class="badge bg-outline-primary me-1">SALE</span>
-                        </div>
-                        <div class="col-4 col-md-3 d-flex align-items-center text-medium text-success justify-content-center">
-                          <i data-cs-icon="arrow-top" data-cs-size="14" class="me-1"></i>
-                          <span class="text-medium">+5.3%</span>
-                        </div>
-                        <div class="col-4 col-md-2 d-flex align-items-center justify-content-end text-muted text-medium">
-                          <span>$ 3.00</span>
-                        </div>
+                    <div class="card mb-2 sh-10 sh-md-8">
+                      <div class="card-body pt-0 pb-0 h-100">
+                        
                       </div>
                     </div>
-                  </div>
-                  <div class="card mb-2 sh-10 sh-md-8">
-                    <div class="card-body pt-0 pb-0 h-100">
-                      <div class="row g-0 h-100 align-content-center">
-                        <div class="col-12 col-md-5 d-flex align-items-center mb-2 mb-md-0">
-                          <a href="Pages.Portfolio.Detail.html" class="body-link text-truncate">Bagel</a>
-                        </div>
-                        <div class="col-4 col-md-2 d-flex align-items-center text-muted text-medium mb-1 mb-md-0">
-                          <span class="badge bg-outline-tertiary me-1">STOCK</span>
-                        </div>
-                        <div class="col-4 col-md-3 d-flex align-items-center text-medium text-danger justify-content-center">
-                          <i data-cs-icon="arrow-bottom" data-cs-size="14" class="me-1"></i>
-                          <span class="text-medium">-2.3%</span>
-                        </div>
-                        <div class="col-4 col-md-2 d-flex align-items-center justify-content-end text-muted text-medium">
-                          <span>$ 4.25</span>
-                        </div>
+                    <div class="card mb-2 sh-10 sh-md-8">
+                      <div class="card-body pt-0 pb-0 h-100">
+
                       </div>
                     </div>
-                  </div>
-                  <div class="card mb-2 sh-10 sh-md-8">
-                    <div class="card-body pt-0 pb-0 h-100">
-                      <div class="row g-0 h-100 align-content-center">
-                        <div class="col-12 col-md-5 d-flex align-items-center mb-2 mb-md-0">
-                          <a href="Pages.Portfolio.Detail.html" class="body-link text-truncate">Buccellato di Lucca</a>
-                        </div>
-                        <div class="col-4 col-md-2 d-flex align-items-center text-muted text-medium mb-1 mb-md-0">
-                          <span class="badge bg-outline-secondary me-1">TREND</span>
-                        </div>
-                        <div class="col-4 col-md-3 d-flex align-items-center text-medium text-danger justify-content-center">
-                          <i data-cs-icon="arrow-bottom" data-cs-size="14" class="me-1"></i>
-                          <span class="text-medium">-5.3%</span>
-                        </div>
-                        <div class="col-4 col-md-2 d-flex align-items-center justify-content-end text-muted text-medium">
-                          <span>$ 3.75</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card mb-2 sh-10 sh-md-8">
-                    <div class="card-body pt-0 pb-0 h-100">
-                      <div class="row g-0 h-100 align-content-center">
-                        <div class="col-12 col-md-5 d-flex align-items-center mb-2 mb-md-0">
-                          <a href="Pages.Portfolio.Detail.html" class="body-link text-truncate">Chapati</a>
-                        </div>
-                        <div class="col-4 col-md-2 d-flex align-items-center text-muted text-medium mb-1 mb-md-0">
-                          <span class="badge bg-outline-primary me-1">SALE</span>
-                        </div>
-                        <div class="col-4 col-md-3 d-flex align-items-center text-medium text-success justify-content-center">
-                          <i data-cs-icon="arrow-top" data-cs-size="14" class="me-1"></i>
-                          <span class="text-medium">+7.1%</span>
-                        </div>
-                        <div class="col-4 col-md-2 d-flex align-items-center justify-content-end text-muted text-medium">
-                          <span>$ 1.85</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card mb-2 sh-10 sh-md-8">
-                    <div class="card-body pt-0 pb-0 h-100">
-                      <div class="row g-0 h-100 align-content-center">
-                        <div class="col-12 col-md-5 d-flex align-items-center mb-2 mb-md-0">
-                          <a href="Pages.Portfolio.Detail.html" class="body-link text-truncate">Pullman Loaf</a>
-                        </div>
-                        <div class="col-4 col-md-2 d-flex align-items-center text-muted text-medium mb-1 mb-md-0">
-                          <span class="badge bg-outline-secondary me-1">TREND</span>
-                        </div>
-                        <div class="col-4 col-md-3 d-flex align-items-center text-medium text-success justify-content-center">
-                          <i data-cs-icon="arrow-top" data-cs-size="14" class="me-1"></i>
-                          <span class="text-medium">+2.3%</span>
-                        </div>
-                        <div class="col-4 col-md-2 d-flex align-items-center justify-content-end text-muted text-medium">
-                          <span>$ 2.25</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card mb-2 sh-10 sh-md-8">
-                    <div class="card-body pt-0 pb-0 h-100">
-                      <div class="row g-0 h-100 align-content-center">
-                        <div class="col-12 col-md-5 d-flex align-items-center mb-2 mb-md-0">
-                          <a href="Pages.Portfolio.Detail.html" class="body-link text-truncate">Chapati</a>
-                        </div>
-                        <div class="col-4 col-md-2 d-flex align-items-center text-muted text-medium mb-1 mb-md-0">
-                          <span class="badge bg-outline-primary me-1">SALE</span>
-                        </div>
-                        <div class="col-4 col-md-3 d-flex align-items-center text-medium text-success justify-content-center">
-                          <i data-cs-icon="arrow-top" data-cs-size="14" class="me-1"></i>
-                          <span class="text-medium">+7.1%</span>
-                        </div>
-                        <div class="col-4 col-md-2 d-flex align-items-center justify-content-end text-muted text-medium">
-                          <span>$ 1.85</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card mb-2 sh-10 sh-md-8">
-                    <div class="card-body pt-0 pb-0 h-100">
-                      <div class="row g-0 h-100 align-content-center">
-                        <div class="col-12 col-md-5 d-flex align-items-center mb-2 mb-md-0">
-                          <a href="Pages.Portfolio.Detail.html" class="body-link text-truncate">Fougasse</a>
-                        </div>
-                        <div class="col-4 col-md-2 d-flex align-items-center text-muted text-medium mb-1 mb-md-0">
-                          <span class="badge bg-outline-primary me-1">SALE</span>
-                        </div>
-                        <div class="col-4 col-md-3 d-flex align-items-center text-medium text-success justify-content-center">
-                          <i data-cs-icon="arrow-top" data-cs-size="14" class="me-1"></i>
-                          <span class="text-medium">+2.3%</span>
-                        </div>
-                        <div class="col-4 col-md-2 d-flex align-items-center justify-content-end text-muted text-medium">
-                          <span>$ 2.25</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card mb-2 sh-10 sh-md-8">
-                    <div class="card-body pt-0 pb-0 h-100">
-                      <div class="row g-0 h-100 align-content-center">
-                        <div class="col-12 col-md-5 d-flex align-items-center mb-2 mb-md-0">
-                          <a href="Pages.Portfolio.Detail.html" class="body-link text-truncate">Biscotti</a>
-                        </div>
-                        <div class="col-4 col-md-2 d-flex align-items-center text-muted text-medium mb-1 mb-md-0">
-                          <span class="badge bg-outline-secondary me-1">TREND</span>
-                        </div>
-                        <div class="col-4 col-md-3 d-flex align-items-center text-medium text-success justify-content-center">
-                          <i data-cs-icon="arrow-top" data-cs-size="14" class="me-1"></i>
-                          <span class="text-medium">+2.3%</span>
-                        </div>
-                        <div class="col-4 col-md-2 d-flex align-items-center justify-content-end text-muted text-medium">
-                          <span>$ 2.25</span>
-                        </div>
-                      </div>
-                    </div>
+
                   </div>
                 </div>
               </div>
@@ -647,6 +495,7 @@
     <script src="js/vendor/glide.min.js"></script>
     <script src="js/vendor/intro.min.js"></script>
     <script src="js/vendor/select2.full.min.js"></script>
+    <script src="js/vendor/moment-with-locales.min.js"></script>
     <!-- Vendor Scripts End -->
 
     <!-- Template Base Scripts Start -->

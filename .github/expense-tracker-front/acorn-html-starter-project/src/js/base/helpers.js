@@ -56,6 +56,51 @@ class Helpers {
       })
     });
   }
+  
+  // return array of dates between a given moment start & end date
+  static getDateRange(startDate, endDate) {
+    startDate.subtract(1, 'days');
+    let currDate = startDate.startOf('day');
+    let lastDate = endDate.startOf('day');
+    let dates=[];
+  
+    while(currDate.add(1, 'days').diff(lastDate) <= 0) {
+      //console.log(currDate.toDate());
+      dates.push(currDate.clone().toDate());
+  }
+  
+    return dates; 
+  }
+
+  // sum together 2 arrays for each index
+  // for example [1,2] and [2,3] would return [3,5]
+  static arraySum(array1, array2) 
+  {
+    var result = [];
+    var ctr = 0;
+    var x=0;
+    
+  while (ctr < array1.length && ctr < array2.length) 
+    {
+      result.push(array1[ctr] + array2[ctr]);
+      ctr++;
+    }
+
+  if (ctr === array1.length) 
+  {
+      for (x = ctr; x < array2.length; x++)   {
+        result.push(array2[x]);
+      }
+    } 
+    else
+    {
+    for (x = ctr; x < array1.length; x++) 
+      {
+        result.push(array1[x]);
+      }
+    }
+    return result;
+  }
 
   // Checks the given array and returns a value plus one from the greatest prop value
   static NextId(data, prop) {
@@ -118,8 +163,8 @@ class Helpers {
     var i = parseInt (c);
     if (i == 0 || isNaN (c))
       return "00";
-    i = Math.round (Math.min (Math.max (0, i), 255));
-    return s.charAt ((i - i % 16) / 16) + s.charAt (i % 16);
+    i = Math.round(Math.min (Math.max (0, i), 255));
+    return s.charAt((i - i % 16) / 16) + s.charAt (i % 16);
   }
 
   // Convert an RGB triplet to a hex string
@@ -135,9 +180,9 @@ class Helpers {
   // Convert a hex string to an RGB triplet
   static convertToRGB (hex) {
     var color = [];
-    color[0] = parseInt((Helpers.trim(hex)).substring (0, 2), 16);
-    color[1] = parseInt((Helpers.trim(hex)).substring (2, 4), 16);
-    color[2] = parseInt((Helpers.trim(hex)).substring (4, 6), 16);
+    color[0] = parseInt((Helpers.trim(hex)).substring(0, 2), 16);
+    color[1] = parseInt((Helpers.trim(hex)).substring(2, 4), 16);
+    color[2] = parseInt((Helpers.trim(hex)).substring(4, 6), 16);
     return color;
   }
 
@@ -161,16 +206,13 @@ class Helpers {
       var c = [];
       alpha += (1.0/len);
       
-      c[0] = start[0] * alpha + (1 - alpha) * end[0];
-      c[1] = start[1] * alpha + (1 - alpha) * end[1];
-      c[2] = start[2] * alpha + (1 - alpha) * end[2];
-  
-      range.push(c.toString());
-      
+      c[0] = Math.round(start[0] * alpha + (1 - alpha) * end[0]);
+      c[1] = Math.round(start[1] * alpha + (1 - alpha) * end[1]);
+      c[2] = Math.round(start[2] * alpha + (1 - alpha) * end[2]);
+      range.push(c.toString());  
     }
     
     return range;
-    
   }
 
 }
