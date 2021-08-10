@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="css/vendor/introjs.min.css" />
     <link rel="stylesheet" href="css/vendor/select2.min.css" />
     <link rel="stylesheet" href="css/vendor/select2-bootstrap4.min.css" />
+    <link rel="stylesheet" href="css/vendor/bootstrap-datepicker3.standalone.min.css" />
 
     <!-- Vendor Styles End -->
     <!-- Template Base Styles Start -->
@@ -205,86 +206,127 @@
           <div class="row">
             <div class="col-12 col-lg-6">
               <div class="mb-5" data-title="Categories" data-intro="You can see your categories and how many expenses each have here!" data-step="1">
-                <!-- Stats Start -->
-              <div class="d-flex">
-                <div class="dropdown-as-select me-3" data-setActive="false" data-childSelector="span">
-                  <a class="pe-0 pt-0 align-top lh-1 dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
-                    <span class="small-title"></span>
-                  </a>
-                  <div class="dropdown-menu font-standard">
-                    <div class="nav flex-column" role="tablist">
-                      <a class="active dropdown-item text-medium" href="#" aria-selected="true" role="tab">This Week's</a>
-                      <a class="dropdown-item text-medium" href="#" aria-selected="false" role="tab">This Month's</a>
-                      <a class="dropdown-item text-medium" href="#" aria-selected="false" role="tab">This Year's</a>
-                      <a class="dropdown-item text-medium" href="#" aria-selected="false" role="tab">Custom</a>
+              <!-- Categories Start -->
+                <div class="d-flex justify-content-between">
+                  <div class="d-flex">
+                    <h2 class="small-title">Categories</h2>
+                  </div>
+
+                  <button
+                    class="btn btn-icon btn-icon-only btn-sm btn-background-alternate mt-n2 shadow"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    data-bs-auto-close="outside"
+                  >
+                  <i data-cs-icon="filter" data-cs-size="15"></i>
+                  </button>
+                  <div class="dropdown-menu sw-40">
+                    <div class="px-4 py-3">
+                      <label class="form-label">Category</label>
+                      <select multiple="multiple" id="categories-category-filter">
+                        <option value="a">All Categories</option>
+                      </select>
+                      <div class="dropdown-divider"></div>
+                      <div class="w-100">
+                        <button type="button" class="w-100 btn btn-outline-primary btn-block" id="categories-apply">Apply</button>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <h2 class="small-title">Categories</h2>
-              </div>
               
-              <div class="mb-5">
-                <div class="scroll-out">
-                  <div class="scroll-by-count" data-count="4" id='category-tiles-scroll'>
-                    <div class="row g-2" id='category-tiles'>
-                      
-                      <div class="col-12 col-sm-6 col-lg-6">
-                        <div class="card sh-11 hover-scale-up cursor-pointer">
-                          <div class="h-100 row g-0 card-body align-items-center py-3">
-                            
+                <div class="mb-5">
+                  <div class="scroll-out">
+                    <div class="scroll-by-count" data-count="4" id='category-tiles-scroll'>
+                      <div class="row g-2" id='category-tiles'>
+                        
+                        <div class="col-12 col-sm-6 col-lg-6">
+                          <div class="card sh-11 hover-scale-up cursor-pointer">
+                            <div class="h-100 row g-0 card-body align-items-center py-3">
+                              
+                            </div>
                           </div>
                         </div>
-                      </div>
 
-                      <div class="col-12 col-sm-6 col-lg-6">
-                        <div class="card sh-11 hover-scale-up cursor-pointer">
-                          <div class="h-100 row g-0 card-body align-items-center py-3">
-                            
+                        <div class="col-12 col-sm-6 col-lg-6">
+                          <div class="card sh-11 hover-scale-up cursor-pointer">
+                            <div class="h-100 row g-0 card-body align-items-center py-3">
+                              
+                            </div>
                           </div>
                         </div>
-                      </div>
 
-                      <div class="col-12 col-sm-6 col-lg-6">
-                        <div class="card sh-11 hover-scale-up cursor-pointer">
-                          <div class="h-100 row g-0 card-body align-items-center py-3">
-                            
+                        <div class="col-12 col-sm-6 col-lg-6">
+                          <div class="card sh-11 hover-scale-up cursor-pointer">
+                            <div class="h-100 row g-0 card-body align-items-center py-3">
+                              
+                            </div>
                           </div>
                         </div>
-                      </div>
 
-                      <div class="col-12 col-sm-6 col-lg-6">
-                        <div class="card sh-11 hover-scale-up cursor-pointer">
-                          <div class="h-100 row g-0 card-body align-items-center py-3">
-                            
+                        <div class="col-12 col-sm-6 col-lg-6">
+                          <div class="card sh-11 hover-scale-up cursor-pointer">
+                            <div class="h-100 row g-0 card-body align-items-center py-3">
+                              
+                            </div>
                           </div>
                         </div>
-                      </div>
 
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <!-- Stats End -->
+              <!-- Categories End -->
               </div>
               
 
               <!-- Category Breakdown start -->
               <div data-title="Category Breakdown" data-intro="Here, you are able to view your breakdown of expenses for each category. You can click each category's icon to filter on each category." data-step="2">
-                <div class="d-flex">
-                  <div class="dropdown-as-select me-3" data-setActive="false" data-childSelector="span">
-                    <a class="pe-0 pt-0 align-top lh-1 dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
-                      <span class="small-title"></span>
-                    </a>
-                    <div class="dropdown-menu font-standard">
-                      <div class="nav flex-column" role="tablist" id='category-breakdown-filter'>
-                        <a class="active dropdown-item text-medium" dato-value="w" href="#" aria-selected="true" role="tab">This Week's</a>
-                        <a class="dropdown-item text-medium" dato-value="m" href="#" aria-selected="false" role="tab">This Month's</a>
-                        <a class="dropdown-item text-medium" dato-value="y" href="#" aria-selected="false" role="tab">This Year's</a>
-                        <a class="dropdown-item text-medium" dato-value="c" href="#" aria-selected="false" role="tab">Custom</a>
+                <div class="d-flex justify-content-between">
+                  <div class="d-flex">
+                    <h2 class="small-title">Category Breakdown</h2>
+                  </div>
+  
+                  <button
+                    class="btn btn-icon btn-icon-only btn-sm btn-background-alternate mt-n2 shadow"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    data-bs-auto-close="outside"
+                  >
+                  <i data-cs-icon="filter" data-cs-size="15"></i>
+                  </button>
+                  <div class="dropdown-menu sw-40">
+                    <div class="px-4 py-3">
+                      <label class="form-label">Date Range</label>
+                      <select id="category-breakdown-date-filter">
+                        <option value="w">This Week</option>
+                        <option value="m">This Month</option>
+                        <option value="y">This Year</option>
+                        <option value="c">Custom Range</option>
+                      </select>
+                      <label class="form-label mt-2">Current Range</label>
+                      <div class="input-daterange input-group" id="category-breakdown-date-picker">
+                        <input type="text" class="form-control" name="start" placeholder="Start" id="category-breakdown-date-picker-start" />
+                        <span class="mx-2 mt-2">to</span>
+                        <input type="text" class="form-control" name="end" placeholder="End" id="category-breakdown-date-picker-end" />
+                      </div>
+                      <div class="dropdown-divider"></div>
+                      <label class="form-label">Date Units</label>
+                      <select id="category-breakdown-date-format-filter">
+                        <option value="d">Days</option>
+                        <option value="w">Weeks</option>
+                        <option value="m">Months</option>
+                        <option value="y">Years</option>
+                      </select>
+                      <div class="dropdown-divider"></div>
+                      <div class="w-100">
+                        <button type="button" class="w-100 btn btn-outline-primary btn-block" id="category-breakdown-apply">Apply</button>
                       </div>
                     </div>
                   </div>
-                  <h2 class="small-title">Category Breakdown</h2>
                 </div>
                 <div class="card mb-5 sh-40">
                   <div class="card-body">
@@ -328,23 +370,10 @@
               </div>
               <!-- Category Breakdown End -->
             </div>
-            <!-- Expenses Start -->
+            <!-- Expenses List -->
             <div class="col-12 col-lg-6 mb-5" data-title="Expense List" data-intro="The Expense List will show all of your expenses, their category, and what percentage of their category they take up. You can filter on a given expense or category by clicking the filter button in the upper right-hand corner." data-step="3">
               <div class="d-flex justify-content-between">
                 <div class="d-flex">
-                  <div class="dropdown-as-select me-3" data-setActive="false" data-childSelector="span">
-                    <a class="pe-0 pt-0 align-top lh-1 dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
-                      <span class="small-title"></span>
-                    </a>
-                    <div class="dropdown-menu font-standard">
-                      <div class="nav flex-column" role="tablist">
-                        <a class="active dropdown-item text-medium" href="#" aria-selected="true" role="tab">This Week's</a>
-                        <a class="dropdown-item text-medium" href="#" aria-selected="false" role="tab">This Month's</a>
-                        <a class="dropdown-item text-medium" href="#" aria-selected="false" role="tab">This Year's</a>
-                        <a class="dropdown-item text-medium" href="#" aria-selected="false" role="tab">Custom</a>
-                      </div>
-                    </div>
-                  </div>
                   <h2 class="small-title">Expenses</h2>
                 </div>
 
@@ -352,18 +381,37 @@
                   class="btn btn-icon btn-icon-only btn-sm btn-background-alternate mt-n2 shadow"
                   type="button"
                   data-bs-toggle="dropdown"
-                  aria-expanded="false"
                   aria-haspopup="true"
+                  aria-expanded="false"
+                  data-bs-auto-close="outside"
                 >
-                  <i data-cs-icon="filter" data-cs-size="15"></i>
+                <i data-cs-icon="filter" data-cs-size="15"></i>
                 </button>
-                <div class="dropdown-menu dropdown-menu-sm dropdown-menu-end shadow">
-                  <h6 class="dropdown-header">Filter by:</h6>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Expense</a>
-                  <a class="dropdown-item" href="#">Category</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Clear Filter</a> 
+                <div class="dropdown-menu sw-40">
+                  <div class="px-4 py-3">
+                    <label class="form-label">Date Range</label>
+                    <select id="expense-list-date-filter">
+                      <option value="w">This Week</option>
+                      <option value="m">This Month</option>
+                      <option value="y">This Year</option>
+                      <option value="c">Custom Range</option>
+                    </select>
+                    <label class="form-label mt-2">Current Range</label>
+                    <div class="input-daterange input-group" id="expense-list-date-picker">
+                      <input type="text" class="form-control" name="start" placeholder="Start" id="expense-list-date-picker-start" />
+                      <span class="mx-2 mt-2">to</span>
+                      <input type="text" class="form-control" name="end" placeholder="End" id="expense-list-date-picker-end" />
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <label class="form-label">Category</label>
+                    <select multiple="multiple" id="expense-list-category-filter">
+                      <option value="a">All Categories</option>
+                    </select>
+                    <div class="dropdown-divider"></div>
+                    <div class="w-100">
+                      <button type="button" class="w-100 btn btn-outline-primary btn-block" id="expense-list-apply">Apply</button>
+                    </div>
+                  </div>
                 </div>
 
               </div>
@@ -496,6 +544,8 @@
     <script src="js/vendor/intro.min.js"></script>
     <script src="js/vendor/select2.full.min.js"></script>
     <script src="js/vendor/moment-with-locales.min.js"></script>
+    <script src="js/vendor/datepicker/bootstrap-datepicker.min.js"></script>
+    <script src="js/vendor/datepicker/locales/bootstrap-datepicker.es.min.js"></script>
     <!-- Vendor Scripts End -->
 
     <!-- Template Base Scripts Start -->
