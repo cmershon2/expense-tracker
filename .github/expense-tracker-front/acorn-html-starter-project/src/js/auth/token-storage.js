@@ -8,8 +8,7 @@
 class tokenStorage {
 
     static signOut(){
-        localStorage.removeItem("auth-token");
-        localStorage.removeItem("auth-user");
+        localStorage.clear();
         location.reload();
     }
 

@@ -23,6 +23,111 @@ class Helpers {
     };
   }
 
+  // add new category
+  // data should be sent as json, it will be stringified
+  static async addCategories(body){
+    return new Promise(function(res,rej){
+      jQuery.ajax({
+        url: "https://expense.projecthost.dev/api/categories",
+        method: "POST",
+        contentType: "application/json; charset=utf-8",
+        headers: {
+          "Authorization": tokenStorage.getToken()
+        },
+        dataType: 'json',
+        data: JSON.stringify(body)
+      }).then(response => {
+        res(response);
+      }).catch(async error => {
+        // confirm user has active session
+        await isSession().then(e => {
+          rej(error);
+        }).catch(f => {
+          location.reload();
+        });
+      })
+    });
+  }
+
+  // add new expense
+  // data should be sent as json, it will be stringified
+  static async addExpense(categoryId, body){
+    return new Promise(function(res,rej){
+      jQuery.ajax({
+        url: `https://expense.projecthost.dev/api/categories/${categoryId}/transactions`,
+        method: "POST",
+        contentType: "application/json; charset=utf-8",
+        headers: {
+          "Authorization": tokenStorage.getToken()
+        },
+        dataType: 'json',
+        data: JSON.stringify(body)
+      }).then(response => {
+        res(response);
+      }).catch(async error => {
+        // confirm user has active session
+        await isSession().then(e => {
+          rej(error);
+        }).catch(f => {
+          location.reload();
+        });
+      })
+    });
+  }
+
+  // update existing category
+  // data should be sent as json, it will be stringified
+  static async putCategories(categoryId, body){
+    return new Promise(function(res,rej){
+      jQuery.ajax({
+        url: `https://expense.projecthost.dev/api/categories/${categoryId}`,
+        method: "PUT",
+        contentType: "application/json; charset=utf-8",
+        headers: {
+          "Authorization": tokenStorage.getToken()
+        },
+        dataType: 'json',
+        data: JSON.stringify(body)
+      }).then(response => {
+        res(response);
+      }).catch(async error => {
+        // confirm user has active session
+        await isSession().then(e => {
+          rej(error);
+        }).catch(f => {
+          location.reload();
+        });
+      })
+    });
+  }
+
+  // update existing expense
+  // data should be sent as json, it will be stringified
+  static async putExpense(categoryId, transactionId, body){
+    return new Promise(function(res,rej){
+      jQuery.ajax({
+        url: `https://expense.projecthost.dev/api/categories/${categoryId}/transactions/${transactionId}`,
+        method: "PUT",
+        contentType: "application/json; charset=utf-8",
+        headers: {
+          "Authorization": tokenStorage.getToken()
+        },
+        dataType: 'json',
+        data: JSON.stringify(body)
+      }).then(response => {
+        res(response);
+      }).catch(async error => {
+        // confirm user has active session
+        await isSession().then(e => {
+          rej(error);
+        }).catch(f => {
+          location.reload();
+        });
+      })
+    });
+  }
+
+  // get all categories
   static async getCategories(){
     return new Promise(function(res,rej){
       jQuery.ajax({
@@ -34,12 +139,18 @@ class Helpers {
         }
       }).then(response => {
         res(response);
-      }).catch(error => {
-        rej(error);
+      }).catch(async error => {
+        // confirm user has active session
+        await isSession().then(e => {
+          rej(error);
+        }).catch(f => {
+          location.reload();
+        });
       })
     });
   }
 
+  // get transaction from category id
   static async getTransaction(categoryId){
     return new Promise(function(res,rej){
       jQuery.ajax({
@@ -51,12 +162,63 @@ class Helpers {
         }
       }).then(response => {
         res(response);
-      }).catch(error => {
-        rej(error);
+      }).catch(async error => {
+        // confirm user has active session
+        await isSession().then(e => {
+          rej(error);
+        }).catch(f => {
+          location.reload();
+        });
+      })
+    });
+  }
+
+  // delete category
+  static async deleteCategory(categoryId){
+    return new Promise(function(res,rej){
+      jQuery.ajax({
+        url: `https://expense.projecthost.dev/api/categories/${categoryId}`,
+        method: "DELETE",
+        contentType: "application/json; charset=utf-8",
+        headers: {
+          "Authorization": tokenStorage.getToken()
+        }
+      }).then(response => {
+        res(response);
+      }).catch(async error => {
+        // confirm user has active session
+        await isSession().then(e => {
+          rej(error);
+        }).catch(f => {
+          location.reload();
+        });
       })
     });
   }
   
+  // delete expense
+  static async deleteExpense(categoryId, transactionId){
+    return new Promise(function(res,rej){
+      jQuery.ajax({
+        url: `https://expense.projecthost.dev/api/categories/${categoryId}/transactions/${transactionId}`,
+        method: "DELETE",
+        contentType: "application/json; charset=utf-8",
+        headers: {
+          "Authorization": tokenStorage.getToken()
+        }
+      }).then(response => {
+        res(response);
+      }).catch(async error => {
+        // confirm user has active session
+        await isSession().then(e => {
+          rej(error);
+        }).catch(f => {
+          location.reload();
+        });
+      })
+    });
+  }
+
   // return array of dates between a given moment start & end date
   static getDateRange(startDate, endDate) {
     startDate.subtract(1, 'days');

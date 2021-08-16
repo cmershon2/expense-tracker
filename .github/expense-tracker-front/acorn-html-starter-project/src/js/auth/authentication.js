@@ -1,5 +1,5 @@
 async function isSession(){
-  return new Promise(function(res){
+  return new Promise(function(res,rej){
     jQuery.ajax({
       url: "https://expense.projecthost.dev/api/categories",
       method: "GET",
@@ -12,26 +12,24 @@ async function isSession(){
       res(200);
     }).catch(error => {
       console.log('Session Ended');
-      res(401);
+      rej(error);
     })
   });
 }
 
 document.addEventListener("DOMContentLoaded", async function(){
-  let session = await isSession();
   let sPath = window.location.pathname;
   let sPage = sPath.substring(sPath.lastIndexOf('/') + 1);
 
-  if(session == 200){
+  await isSession().then(res =>{
     if(sPage == 'Login.html'){
       window.location.replace("./Overview.html");
     } else if(sPage == 'Register.html'){
       window.location.replace("./Overview.html");
     }
-  }
-  else{
+  }).catch(rej =>{
     if(sPage == 'Overview.html'){
       window.location.replace("./Login.html");
     }
-  }
+  });
 });

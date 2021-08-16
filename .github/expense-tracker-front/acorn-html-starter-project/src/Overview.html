@@ -139,15 +139,9 @@
                 </a>
               </li>
               <li>
-                <a href="#">
-                  <i data-cs-icon="accordion" class="icon" data-cs-size="18"></i>
-                  <span class="label">Categories</span>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i data-cs-icon="calendar" class="icon" data-cs-size="18"></i>
-                  <span class="label">Calendar</span>
+                <a href="Docs.html">
+                  <i data-cs-icon="document-full" class="icon" data-cs-size="18"></i>
+                  <span class="label">Docs</span>
                 </a>
               </li>
             </ul>
@@ -205,32 +199,44 @@
           <!-- Content Start -->
           <div class="row">
             <div class="col-12 col-lg-6">
-              <div class="mb-5" data-title="Categories" data-intro="You can see your categories and how many expenses each have here!" data-step="1">
+              <div class="mb-5" data-title="Categories" data-intro="You can see your categories and their total value here. Click the filter icon in the upper right corner to filter on a given category." data-step="1">
               <!-- Categories Start -->
-                <div class="d-flex justify-content-between">
-                  <div class="d-flex">
+                <div class="row g-0 d-flex align-items-center gap-2">
+                  <div class="col d-flex">
                     <h2 class="small-title">Categories</h2>
                   </div>
-
-                  <button
+                  
+                  <div class="col d-flex align-items-center justify-content-end text-muted">
+                    <button
+                    class="btn btn-icon btn-icon-only btn-sm btn-background-alternate mt-n2 shadow"
+                    type="button"
+                    data-bs-toggle="modal" 
+                    data-bs-target="#addCategoryModal"
+                    >
+                    <i data-cs-icon="plus" data-cs-size="15"></i>
+                    </button>
+                  </div>
+                  <div class='col-auto d-flex align-items-center justify-content-end text-muted'>
+                    <button
                     class="btn btn-icon btn-icon-only btn-sm btn-background-alternate mt-n2 shadow"
                     type="button"
                     data-bs-toggle="dropdown"
                     aria-haspopup="true"
                     aria-expanded="false"
                     data-bs-auto-close="outside"
-                  >
-                  <i data-cs-icon="filter" data-cs-size="15"></i>
-                  </button>
-                  <div class="dropdown-menu sw-40">
-                    <div class="px-4 py-3">
-                      <label class="form-label">Category</label>
-                      <select multiple="multiple" id="categories-category-filter">
-                        <option value="a">All Categories</option>
-                      </select>
-                      <div class="dropdown-divider"></div>
-                      <div class="w-100">
-                        <button type="button" class="w-100 btn btn-outline-primary btn-block" id="categories-apply">Apply</button>
+                    >
+                    <i data-cs-icon="filter" data-cs-size="15"></i>
+                    </button>
+                    <div class="dropdown-menu sw-40">
+                      <div class="px-4 py-3">
+                        <label class="form-label">Category</label>
+                        <select multiple="multiple" id="categories-category-filter">
+                          <option value="a">All Categories</option>
+                        </select>
+                        <div class="dropdown-divider"></div>
+                        <div class="w-100">
+                          <button type="button" class="w-100 btn btn-outline-primary btn-block" data-bs-dismiss="dropdown-menu" aria-label="Close" id="categories-apply">Apply</button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -239,7 +245,7 @@
                 <div class="mb-5">
                   <div class="scroll-out">
                     <div class="scroll-by-count" data-count="4" id='category-tiles-scroll'>
-                      <div class="row g-2" id='category-tiles'>
+                      <div class="row g-2 h-100" id='category-tiles'>
                         
                         <div class="col-12 col-sm-6 col-lg-6">
                           <div class="card sh-11 hover-scale-up cursor-pointer">
@@ -282,7 +288,7 @@
               
 
               <!-- Category Breakdown start -->
-              <div data-title="Category Breakdown" data-intro="Here, you are able to view your breakdown of expenses for each category. You can click each category's icon to filter on each category." data-step="2">
+              <div data-title="Category Breakdown" data-intro="Here, you are able to view your breakdown of expenses for each category. You can click each category's icon to filter on a given category." data-step="2">
                 <div class="d-flex justify-content-between">
                   <div class="d-flex">
                     <h2 class="small-title">Category Breakdown</h2>
@@ -298,7 +304,7 @@
                   >
                   <i data-cs-icon="filter" data-cs-size="15"></i>
                   </button>
-                  <div class="dropdown-menu sw-40">
+                  <div id="category-breakdown-drop-down" class="dropdown-menu sw-40">
                     <div class="px-4 py-3">
                       <label class="form-label">Date Range</label>
                       <select id="category-breakdown-date-filter">
@@ -330,8 +336,19 @@
                 </div>
                 <div class="card mb-5 sh-40">
                   <div class="card-body">
+
+                    <div id="chart-no-data" class='h-100'>
+                      <div class='row w-100 h-100 align-items-center'>
+                        <div class="col d-flex justify-content-center">
+                          <div class="p text-muted">No Data To Display</div>
+                        </div>
+                    </div>
+                    </div>
+
                     <div class="scroll-horizontal">
-                      <div class="custom-legend-container mb-3 d-flex flex-row"></div>
+                      <div id='legend-container' class="custom-legend-container mb-3 d-flex flex-row">
+
+                      </div>
                     </div>
                     <!-- Custom legend template used by js -->
                     <template class="custom-legend-item">
@@ -372,53 +389,64 @@
             </div>
             <!-- Expenses List -->
             <div class="col-12 col-lg-6 mb-5" data-title="Expense List" data-intro="The Expense List will show all of your expenses, their category, and what percentage of their category they take up. You can filter on a given expense or category by clicking the filter button in the upper right-hand corner." data-step="3">
-              <div class="d-flex justify-content-between">
-                <div class="d-flex">
+              <div class="row g-0 d-flex align-items-center gap-2">
+                <div class="col d-flex">
                   <h2 class="small-title">Expenses</h2>
                 </div>
 
-                <button
+                <div class="col d-flex align-items-center justify-content-end text-muted">
+                  <button
+                  class="btn btn-icon btn-icon-only btn-sm btn-background-alternate mt-n2 shadow"
+                  type="button"
+                  data-bs-toggle="modal" 
+                  data-bs-target="#addExpenseModal"
+                  >
+                  <i data-cs-icon="plus" data-cs-size="15"></i>
+                  </button>
+                </div>
+                <div class='col-auto d-flex align-items-center justify-content-end text-muted'>
+                  <button
                   class="btn btn-icon btn-icon-only btn-sm btn-background-alternate mt-n2 shadow"
                   type="button"
                   data-bs-toggle="dropdown"
                   aria-haspopup="true"
                   aria-expanded="false"
                   data-bs-auto-close="outside"
-                >
-                <i data-cs-icon="filter" data-cs-size="15"></i>
-                </button>
-                <div class="dropdown-menu sw-40">
-                  <div class="px-4 py-3">
-                    <label class="form-label">Date Range</label>
-                    <select id="expense-list-date-filter">
-                      <option value="w">This Week</option>
-                      <option value="m">This Month</option>
-                      <option value="y">This Year</option>
-                      <option value="c">Custom Range</option>
-                    </select>
-                    <label class="form-label mt-2">Current Range</label>
-                    <div class="input-daterange input-group" id="expense-list-date-picker">
-                      <input type="text" class="form-control" name="start" placeholder="Start" id="expense-list-date-picker-start" />
-                      <span class="mx-2 mt-2">to</span>
-                      <input type="text" class="form-control" name="end" placeholder="End" id="expense-list-date-picker-end" />
-                    </div>
-                    <div class="dropdown-divider"></div>
-                    <label class="form-label">Category</label>
-                    <select multiple="multiple" id="expense-list-category-filter">
-                      <option value="a">All Categories</option>
-                    </select>
-                    <div class="dropdown-divider"></div>
-                    <div class="w-100">
-                      <button type="button" class="w-100 btn btn-outline-primary btn-block" id="expense-list-apply">Apply</button>
+                  >
+                  <i data-cs-icon="filter" data-cs-size="15"></i>
+                  </button>
+                  <div class="dropdown-menu sw-40">
+                    <div class="px-4 py-3">
+                      <label class="form-label">Date Range</label>
+                      <select id="expense-list-date-filter">
+                        <option value="w">This Week</option>
+                        <option value="m">This Month</option>
+                        <option value="y">This Year</option>
+                        <option value="c">Custom Range</option>
+                      </select>
+                      <label class="form-label mt-2">Current Range</label>
+                      <div class="input-daterange input-group" id="expense-list-date-picker">
+                        <input type="text" class="form-control" name="start" placeholder="Start" id="expense-list-date-picker-start" />
+                        <span class="mx-2 mt-2">to</span>
+                        <input type="text" class="form-control" name="end" placeholder="End" id="expense-list-date-picker-end" />
+                      </div>
+                      <div class="dropdown-divider"></div>
+                      <label class="form-label">Category</label>
+                      <select multiple="multiple" id="expense-list-category-filter">
+                        <option value="a">All Categories</option>
+                      </select>
+                      <div class="dropdown-divider"></div>
+                      <div class="w-100">
+                        <button type="button" class="w-100 btn btn-outline-primary btn-block" id="expense-list-apply">Apply</button>
+                      </div>
                     </div>
                   </div>
                 </div>
-
               </div>
               
               <div class="scroll-out">
                 <div class="scroll-by-count" data-count="8">
-                  <div id="expense-stats">
+                  <div id="expense-stats" class="h-100">
 
                     <div class="card mb-2 sh-10 sh-md-8">
                       <div class="card-body pt-0 pb-0 h-100">
@@ -496,7 +524,7 @@
               <div class="col-sm-6 d-none d-sm-block">
                 <ul class="breadcrumb pt-0 pe-0 mb-0 float-end">
                   <li class="breadcrumb-item mb-0 text-medium"><a href="Legal.html" class="btn-link">Terms & Conditions</a></li>
-                  <li class="breadcrumb-item mb-0 text-medium"><a href="#" class="btn-link">Docs</a></li>
+                  <li class="breadcrumb-item mb-0 text-medium"><a href="Docs.html" class="btn-link">Docs</a></li>
                 </ul>
               </div>
             </div>
@@ -531,6 +559,99 @@
     </div>
     <!-- Search Modal End -->
 
+    <!-- Add Category Modal -->
+    <div class="modal modal-left large fade" id="addCategoryModal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addCategoryModalTitle">Add New Category</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Categories are over-arching entities that can contain multiple expenses. Each category can have multiple expenses however, each expense can only have one Category. This is known as a many-to-one relationship.</p>
+            <hr>
+            <p>Please enter the following details to create a new Category:</p>
+            <form id='add-Category-Form' class="tooltip-end-bottom" novalidate>
+              <div class="mb-3 filled form-group tooltip-end-top">
+                <i data-cs-icon="edit"></i>
+                <input class="form-control" placeholder="Category Name" name="categoryName"  id="categoryName" required/>
+              </div>
+              <div class="mb-3 filled form-group tooltip-end-top">
+                <textarea placeholder="Description" class="form-control" name="categoryDescription" id='categoryDescription' rows="2" required></textarea>
+                <i data-cs-icon="notebook-3"></i>
+              </div>
+              <div class="w-100 filled mb-3 form-group tooltip-end-top">
+                <i data-cs-icon="settings-2"></i>
+                <select id="categoryIcon" class="form-control" name="categoryIcon" required>
+                  <option></option>
+                </select>
+              </div>
+              <div class="w-100">
+                <button type="submit" class="w-100 btn btn-outline-primary btn-block" id="add-Category-Submit">Add Category</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Add Category Modal End -->
+
+    <!-- Add Expense Modal -->
+    <div class="modal modal-left large fade" id="addExpenseModal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addExpenseModalTitle">Add New Expense</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Expenses are singular entities that can only have one category. Each expense can have a single category however, each category have multiple one expenses. This is known as a one-to-many relationship.</p>
+            <hr>
+            <p>Please enter the following details to create a new Expense:</p>
+            <form id='add-Expense-Form' class="tooltip-end-bottom" novalidate>
+              <div class="mb-3 filled form-group tooltip-end-top">
+                <div class="filled mb-0 w-100">
+                  <i data-cs-icon="diagram-1"></i>
+                  <select id="expenseCategory" data-placeholder="Category" required>
+                    <option label="&nbsp;"></option>
+                  </select>
+                  <div id="expenseCategoryHelpBlock" class="form-text">
+                    Note: once an expense has been created, the category can not be changed.
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3 filled form-group tooltip-end-top">
+                <i data-cs-icon="edit"></i>
+                <input class="form-control" placeholder="Expense Name" name="expenseName"  id="expenseName" required/>
+              </div>
+              <div class="mb-3 filled form-group tooltip-end-top">
+                <input placeholder="Amount" class="form-control" name="expenseAmount" id='expenseAmount' required />
+                <i data-cs-icon="dollar"></i>
+              </div>
+              <div class="w-100 filled mb-3 form-group tooltip-end-top">
+                <div class="filled">
+                  <i data-cs-icon="calendar"></i>
+                  <input type="text" class="form-control" placeholder="Date" id="expenseDate" required>
+                </div>
+              </div>
+              <div class="w-100">
+                <button type="submit" class="w-100 btn btn-outline-primary btn-block" id="add-Expense-Submit">Add Expense</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Add Expense Modal End -->
+
+    <div id="category-details-modal">
+      <!-- Dynamic container to append category detail modals -->
+    </div>
+
+    <div id="expense-details-modal">
+      <!-- Dynamic container to append expense detail modals -->
+    </div>
+
     <!-- Vendor Scripts Start -->
     <script src="js/vendor/jquery-3.5.1.min.js"></script>
     <script src="js/vendor/bootstrap.bundle.min.js"></script>
@@ -546,13 +667,17 @@
     <script src="js/vendor/moment-with-locales.min.js"></script>
     <script src="js/vendor/datepicker/bootstrap-datepicker.min.js"></script>
     <script src="js/vendor/datepicker/locales/bootstrap-datepicker.es.min.js"></script>
+    <script src="js/vendor/jquery.validate/jquery.validate.min.js"></script>
+    <script src="js/vendor/jquery.validate/additional-methods.min.js"></script>
+    <script src="js/vendor/bootstrap-notify.min.js"></script>
+    <script src="js/vendor/imask.js"></script>
     <!-- Vendor Scripts End -->
 
     <!-- Template Base Scripts Start -->
     <script src="js/auth/authentication.js"></script>
+    <script src="js/auth/token-storage.js"></script>
     <script src="font/CS-Line/csicons.min.js"></script>
     <script src="js/base/helpers.js"></script>
-    <script src="js/auth/token-storage.js"></script>
     <script src="js/base/globals.js"></script>
     <script src="js/base/nav.js"></script>
     <script src="js/base/search.js"></script>

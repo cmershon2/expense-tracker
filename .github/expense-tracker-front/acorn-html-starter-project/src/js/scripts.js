@@ -293,7 +293,7 @@
 
   // Icon pages initialization
   _initIcons() {
-    // interface.icons.js initialization
+    // overview-icons.js initialization
     if (typeof Icons !== 'undefined') {
       const icons = new Icons();
     }
