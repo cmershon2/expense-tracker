@@ -2,5 +2,33 @@
     {
         "label": "Overview",
         "url": "Overview.html"
+    },
+    {
+        "label": "Documentation",
+        "url": "Docs.html"
+    },
+    {
+        "label": "Getting Started",
+        "url": "Docs.Guides.GettingStarted.html"
+    },
+    {
+        "label": "Learn the Layout",
+        "url": "Docs.Guides.GettingStarted.Layout.html"
+    },
+    {
+        "label": "Add a Category",
+        "url": "Docs.Guides.GettingStarted.AddCategory.html"
+    },
+    {
+        "label": "Add an Expense",
+        "url": "Docs.Guides.GettingStarted.AddExpense.html"
+    },
+    {
+        "label": "Edit Categories & Expenses",
+        "url": "Docs.Guides.GettingStarted.EditMode.html"
+    },
+    {
+        "label": "Track Metrics",
+        "url": "Docs.Guides.GettingStarted.TrackMetrics.html"
     }
 ]

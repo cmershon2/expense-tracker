@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html 
+    lang="en"
+    data-footer="true"
+    data-override='{"attributes": {"placement": "horizontal","layout": "boxed" }, "showSettings":false, "storagePrefix": "starter-project"}'
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Expense Tracker | Edit Categories & Expenses</title>
+    <meta name="description" content="Expense Tracker Getting Started" />
+    <!-- Favicon Tags Start -->
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="img/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" href="img/favicon/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="img/favicon/favicon-16x16.png" sizes="16x16" />
+    <meta name="application-name" content="&nbsp;" />
+    <link rel="manifest" href="img/favicon/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-square150x150logo" content="img/favicon/mstile-150x150.png" />
+    <!-- Favicon Tags End -->
+    <!-- Font Tags Start -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="font/CS-Interface/style.css" />
+    <!-- Font Tags End -->
+    <!-- Vendor Styles Start -->
+    <link rel="stylesheet" href="css/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/vendor/OverlayScrollbars.min.css" />
+
+    <!-- Vendor Styles End -->
+    <!-- Template Base Styles Start -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- Template Base Styles End -->
+
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="js/base/loader.js"></script>
+  </head>
+
+  <body>
+    <div id="root">
+        <div id="nav" class="nav-container d-flex">
+            <div class="nav-content d-flex">
+              <!-- Logo Start -->
+              <div class="logo position-relative">
+                <a href="index.html">
+                  <img src="img/logo/logo_white.png" alt="logo" />
+                </a>
+              </div>
+              <!-- Logo End -->
+    
+              <!-- User Menu Start -->
+            <div class="user-container d-flex">
+              <a href="#" class="d-flex user position-relative" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img class="profile" alt="profile" src="img/profile/main-prof.png" />
+                <div class="name" id="user-name">{User's Full  Name}</div>
+              </a>
+              <div class="dropdown-menu dropdown-menu-end user-menu wide">
+                <div class="row mb-1 ms-0 me-0">
+                  <div class="col-12 ps-1 mb-2">
+                    <div class="text-extra-small text-primary">GENERAL</div>
+                  </div>
+                  <div class="col-6 ps-1 pe-1">
+                    <ul class="list-unstyled">
+                      <li>
+                        <a href="Docs.Guides.GettingStarted.html">
+                          <i data-cs-icon="help" class="me-2" data-cs-size="17"></i>
+                          <span class="align-middle">Help</span>
+                        </a>
+                      </li>
+                      
+                    </ul>
+                  </div>
+                  <div class="col-6 pe-1 ps-1">
+                    <ul class="list-unstyled">
+                      <li>
+                        <a href="Docs.html">
+                          <i data-cs-icon="document-full" class="me-2" data-cs-size="17"></i>
+                          <span class="align-middle">Docs</span>
+                        </a>
+                      </li>
+                  </div>
+                </div>
+                <div class="row mb-1 ms-0 me-0">
+                  <div class="col-12 p-1 mb-3 pt-3">
+                    <div class="separator-light"></div>
+                  </div>
+                  <div class="col-6 pe-1 ps-1">
+                    <ul class="list-unstyled">
+                      <li>
+                        <a href="" onClick="tokenStorage.signOut()">
+                          <i data-cs-icon="logout" class="me-2" data-cs-size="17"></i>
+                          <span class="align-middle">Logout</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <!-- User Menu End -->
+    
+              <!-- Icons Menu Start -->
+              <ul class="list-unstyled list-inline text-center menu-icons">
+                <li class="list-inline-item">
+                  <a href="#" data-bs-toggle="modal" data-bs-target="#searchPagesModal">
+                    <i data-cs-icon="search" data-cs-size="18"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#" id="pinButton" class="pin-button">
+                    <i data-cs-icon="lock-on" class="unpin" data-cs-size="18"></i>
+                    <i data-cs-icon="lock-off" class="pin" data-cs-size="18"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#" id="colorButton">
+                    <i data-cs-icon="light-on" class="light" data-cs-size="18"></i>
+                    <i data-cs-icon="light-off" class="dark" data-cs-size="18"></i>
+                  </a>
+                </li>
+              </ul>
+              <!-- Icons Menu End -->
+    
+              <!-- Menu Start -->
+              <div class="menu-container flex-grow-1">
+                <ul id="menu" class="menu">
+                  <li>
+                    <a href="Overview.html">
+                      <i data-cs-icon="board-2" class="icon" data-cs-size="18"></i>
+                      <span class="label">Overview</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="Docs.html">
+                      <i data-cs-icon="document-full" class="icon" data-cs-size="18"></i>
+                      <span class="label">Docs</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- Menu End -->
+    
+              <!-- Mobile Buttons Start -->
+              <div class="mobile-buttons-container">
+                <!-- Scrollspy Mobile Button Start -->
+                <a href="#" id="scrollSpyButton" class="spy-button" data-bs-toggle="dropdown">
+                  <i data-cs-icon="menu-dropdown"></i>
+                </a>
+                <!-- Scrollspy Mobile Button End -->
+    
+                <!-- Scrollspy Mobile Dropdown Start -->
+                <div class="dropdown-menu dropdown-menu-end" id="scrollSpyDropdown"></div>
+                <!-- Scrollspy Mobile Dropdown End -->
+    
+                <!-- Menu Button Start -->
+                <a href="#" id="mobileMenuButton" class="menu-button">
+                  <i data-cs-icon="menu"></i>
+                </a>
+                <!-- Menu Button End -->
+              </div>
+              <!-- Mobile Buttons End -->
+            </div>
+            <div class="nav-shadow"></div>
+          </div>
+
+          <main>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <!-- Title Start -->
+                        <section class="scroll-section" id="title">
+                            <div class="page-title-container">
+                            <h1 class="mb-0 pb-0 display-4">Edit Categories & Expenses</h1>
+                            <nav class="breadcrumb-container d-inline-block" aria-label="breadcrumb">
+                                <ul class="breadcrumb pt-0">
+                                <li class="breadcrumb-item"><a href="Docs.html">Docs</a></li>
+                                <li class="breadcrumb-item"><a href="#">Guides</a></li>
+                                <li class="breadcrumb-item"><a href="Docs.Guides.GettingStarted.html">Getting Started</a></li>
+                                <li class="breadcrumb-item"><a href="#">Edit Categories & Expenses</a></li>
+                                </ul>
+                            </nav>
+                            </div>
+                        </section>
+                        <!-- Title End -->
+    
+                        <!-- Content Start -->
+                        <div>
+                            <div class="card mb-5">
+                                <div class="card-body">
+                                  <p class="mb-3">
+                                    After creating a category or expense, you may realize there is a typo or an expense costed more than it was entered. Never fear, edit mode is here! 
+                                  </p>
+                                  <p class="mb-0">
+                                    Edit mode allows you to modify existing categories and expenses to their desired value.
+                                  </p>
+                                </div>
+                            </div>
+    
+                            <!-- Adding Start -->
+                            <section class="scroll-section" id="makingChanges">
+                            <h2 class="small-title">Making Changes</h2>
+                            <div class="card mb-5">
+                                <img src="img/blog/edit-image-1.png" class="card-img-top" alt="card image">
+                                <div class="card-body">
+                                    <p class='mb-3'>
+                                      To enter edit mode, first, click a category or expense from their designated list. You will notice a pop-up that includes the details about the associated entity. 
+                                    </p>
+                                    <p class='mb-3'>
+                                      Once in this pop-up, click the toggle button titled 'Edit Mode'. Please know that edit mode can be a powerful tool that can delete data, once data is deleted, it cannot be restored.
+                                    </p>
+                                    <p class='mb-0'>
+                                      Now that you are editing this entity, you can change any of the desired fields (excluding the Category field for Expenses). After you have made your changes, click the green 'Save' button.
+                                    </p>
+                                </div>
+                            </div>
+                            </section>
+                            <!-- Adding End -->
+    
+                            <!-- Options Start -->
+                            <section class="scroll-section" id="deleteData">
+                            <h2 class="small-title">Deleting Data</h2>
+                            <div class="card mb-5">
+                                <img src="img/blog/edit-image-2.png" class="card-img-top" alt="card image">
+                                <div class="card-body">
+                                    <p class='mb-2'>
+                                      To delete data, first enter edit mode on an entity you would like to delete. Once in edit mode, click the red 'Delete' button. 
+                                    </p>
+                                    <p class="mb-2">
+                                      This will open another pop-up confirming the deletion of data. Note that once data is deleted, it cannot be restored
+                                    </p>
+                                    <p class="mb-0">
+                                      Additionally, when deleting a category, all associated expenses are also deleted.
+                                    </p>
+                                </div>
+                            </div>
+                            </section>
+                            <!-- Overview End -->
+
+                            <!-- Next Start -->
+                            <section class="scroll-section" id="continue">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="card mb-5 hover-scale-up cursor-pointer">
+                                            <div class="card-body">
+                                                <div class="row align-items-center">
+                                                    <div class="col-auto d-flex justify-content-start">
+                                                        <div class="sh-5 sw-5 border border-dashed rounded-xl">
+                                                          <div class="bg-separator w-100 h-100 rounded-xl d-flex justify-content-center align-items-center">
+                                                              <i data-cs-icon="chevron-left" class="text-white"></i>
+                                                          </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col d-flex justify-content-start">
+                                                        <h5>Previous Section: Add an Expense</h5>
+                                                    </div>
+                                                </div>
+                                                <a href="Docs.Guides.GettingStarted.AddExpense.html" class="stretched-link"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="card mb-5 hover-scale-up cursor-pointer">
+                                            <div class="card-body">
+                                                <div class="row align-items-center">
+                                                    <div class="col d-flex justify-content-end">
+                                                        <h5>Next Section: Track Metric</h5>
+                                                      </div>
+                                                    <div class="col-auto d-flex justify-content-end">
+                                                        <div class="sh-5 sw-5 border border-dashed rounded-xl">
+                                                          <div class="bg-separator w-100 h-100 rounded-xl d-flex justify-content-center align-items-center">
+                                                              <i data-cs-icon="chevron-right" class="text-white"></i>
+                                                          </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <a href="Docs.Guides.GettingStarted.TrackMetrics.html" class="stretched-link"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <!-- Next End -->
+    
+                        </div>
+                        <!-- Content End -->
+                    </div>
+    
+                <!-- Scrollspy Start -->
+                <div class="col-md-auto d-none d-lg-block" id="scrollSpyMenu">
+                  <ul class="nav flex-column">
+                    <li>
+                      <a class="nav-link" href="#title">
+                        <i data-cs-icon="chevron-right"></i>
+                        <span>Title</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="nav-link" href="#makingChanges">
+                        <i data-cs-icon="chevron-right"></i>
+                        <span>Making Changes</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="nav-link" href="#deleteData">
+                        <i data-cs-icon="chevron-right"></i>
+                        <span>Deleting Data</span>
+                      </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#continue">
+                          <i data-cs-icon="chevron-right"></i>
+                          <span>Continue</span>
+                        </a>
+                      </li>
+                  </ul>
+                </div>
+                <!-- Scrollspy End -->
+              </div>
+            </div>
+          </main>
+    
+      <!-- Layout Footer Start -->
+      <footer>
+        <div class="footer-content">
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-sm-6">
+                <p class="mb-0 text-muted text-medium">Casey Mershon <span id="page-year">2021</span></p>
+              </div>
+              <div class="col-sm-6 d-none d-sm-block">
+                <ul class="breadcrumb pt-0 pe-0 mb-0 float-end">
+                  <li class="breadcrumb-item mb-0 text-medium"><a href="Legal.html" class="btn-link">Terms & Conditions</a></li>
+                  <li class="breadcrumb-item mb-0 text-medium"><a href="Docs.html" class="btn-link">Docs</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- Layout Footer End -->
+    </div>
+
+    <!-- Search Modal Start -->
+    <div class="modal fade modal-under-nav modal-search modal-close-out" id="searchPagesModal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header border-0 p-0">
+            <button type="button" class="btn-close btn btn-icon btn-icon-only btn-foreground" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body ps-5 pe-5 pb-0 border-0">
+            <input id="searchPagesInput" class="form-control form-control-xl borderless ps-0 pe-0 mb-1 auto-complete" type="text" autocomplete="off" />
+          </div>
+          <div class="modal-footer border-top justify-content-start ps-5 pe-5 pb-3 pt-3 border-0">
+            <span class="text-alternate d-inline-block m-0 me-3">
+              <i data-cs-icon="arrow-bottom" data-cs-size="15" class="text-alternate align-middle me-1"></i>
+              <span class="align-middle text-medium">Navigate</span>
+            </span>
+            <span class="text-alternate d-inline-block m-0 me-3">
+              <i data-cs-icon="arrow-bottom-left" data-cs-size="15" class="text-alternate align-middle me-1"></i>
+              <span class="align-middle text-medium">Select</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Search Modal End -->
+
+    <!-- Vendor Scripts Start -->
+    <script src="js/vendor/jquery-3.5.1.min.js"></script>
+    <script src="js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="js/vendor/OverlayScrollbars.min.js"></script>
+    <script src="js/vendor/autoComplete.min.js"></script>
+    <script src="js/vendor/clamp.min.js"></script>
+
+    <!-- Vendor Scripts End -->
+
+    <!-- Template Base Scripts Start -->
+    <script src="js/auth/authentication.js"></script>
+    <script src="js/auth/token-storage.js"></script>
+    <script src="font/CS-Line/csicons.min.js"></script>
+    <script src="js/base/helpers.js"></script>
+    <script src="js/base/globals.js"></script>
+    <script src="js/base/nav.js"></script>
+    <script src="js/base/search.js"></script>
+    <script src="js/base/settings.js"></script>
+    <script src="js/base/init.js"></script>
+    <!-- Template Base Scripts End -->
+    <!-- Page Specific Scripts Start -->
+
+    <script src="js/common.js"></script>
+    <script src="js/scripts.js"></script>
+    <!-- Page Specific Scripts End -->
+  </body>
+</html>

@@ -838,6 +838,7 @@
                 
                 // wipe filters
                 localStorage.setItem("categories-category", ['a']);
+                localStorage.setItem("expense-list-category",  ['a']);
                 categoryFilter.html('').select2({data: [{id: 'a', text: 'All Categories'}]});
                 expenseFilter.html('').select2({data: [{id: 'a', text: 'All Categories'}]});
                 expenseAddDropdown.html('');
@@ -956,6 +957,7 @@
               
               // wipe filters
               localStorage.setItem("categories-category", ['a']);
+              localStorage.setItem("expense-list-category",  ['a']);
               categoryFilter.html('').select2({data: [{id: 'a', text: 'All Categories'}]});
               expenseFilter.html('').select2({data: [{id: 'a', text: 'All Categories'}]});
               expenseAddDropdown.html('');
@@ -1042,6 +1044,8 @@
     let data = await this._dataSet();
     let numberOfCategories = 0;
     let categoryFilter = $('#expense-list-category-filter');
+    let expenseFilter = $('#categories-category-filter');
+    let expenseAddDropdown = $('#expenseCategory');
     data.forEach(cat => {
       numberOfCategories++;
       if(first != 1){
@@ -1198,12 +1202,11 @@
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="staticBackdropLabel">Delete Category</h5>
+                      <h5 class="modal-title" id="staticBackdropLabel">Delete Expense</h5>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                      <h3>Are you sure you want to delete the "<i>${tran.note}</i>" category?</h3>
-                      <p>Please know that when deleting a category, <b>all</b> associated expenses are deleted.</p>
+                      <h3>Are you sure you want to delete the "<i>${tran.note}</i>" expense?</h3>
                     </div>
                     <div class="modal-footer">
                       <div class="row g-0 d-flex w-100 align-items-center d-grid gap-2 ">
@@ -1344,6 +1347,13 @@
                           delay: 5000,
                       }
                     );
+
+                    // wipe filters
+                    localStorage.setItem("categories-category", ['a']);
+                    localStorage.setItem("expense-list-category",  ['a']);
+                    categoryFilter.html('').select2({data: [{id: 'a', text: 'All Categories'}]});
+                    expenseFilter.html('').select2({data: [{id: 'a', text: 'All Categories'}]});
+                    expenseAddDropdown.html('');
                     
                     $(`#expense-${tran.transactionId}`).modal('hide');
         
@@ -1376,7 +1386,13 @@
                         delay: 5000,
                     }
                   );
-                  
+
+                  // wipe filters
+                  localStorage.setItem("categories-category", ['a']);
+                  categoryFilter.html('').select2({data: [{id: 'a', text: 'All Categories'}]});
+                  expenseFilter.html('').select2({data: [{id: 'a', text: 'All Categories'}]});
+                  expenseAddDropdown.html('');
+                      
                   $(`#expense-${tran.transactionId}`).modal('hide');
         
                   this._customLegendBarChart && this._customLegendBarChart.destroy();
