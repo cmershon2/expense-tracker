@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", async function(){
       window.location.replace("./Overview.html");
     }
   }).catch(rej =>{
-    if(sPage == 'Overview.html'){
+    if(!(sPage == 'Login.html' || sPage == 'Register.html')){
       window.location.replace("./Login.html");
     }
   });

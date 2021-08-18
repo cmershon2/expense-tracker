@@ -7,8 +7,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <title>Expense Tracker | Docs</title>
-    <meta name="description" content="Expense Tracker Documentation" />
+    <title>Expense Tracker | Advanced Configuration</title>
+    <meta name="description" content="Expense Tracker Getting Started" />
     <!-- Favicon Tags Start -->
     <link rel="apple-touch-icon-precomposed" sizes="76x76" href="img/favicon/apple-touch-icon.png" />
     <link rel="icon" type="image/png" href="img/favicon/favicon-32x32.png" sizes="32x32" />
@@ -100,6 +100,7 @@
                     </div>
                 </div>
                 <!-- User Menu End -->
+    
               <!-- Icons Menu Start -->
               <ul class="list-unstyled list-inline text-center menu-icons">
                 <li class="list-inline-item">
@@ -166,174 +167,86 @@
 
       <main>
         <div class="container">
-          <div class="row">
-            <!-- Page Content Start -->
-            <div class="col">
-
-              <div class="row">
-                <!-- Introduction Banner Start -->
-                <div class="col-12 col-lg-8 mb-5">
-                  <div class="card sh-45 h-lg-100 position-relative bg-theme">
-                    <img src="img/illustration/landing.png" class="card-img h-100 position-absolute theme-filter" alt="card image" />
-                    <div class="card-img-overlay d-flex flex-column justify-content-end bg-transparent">
-                      <div class="mb-4">
-                        <div class="cta-1 mb-2 w-75 w-sm-50">Introduction to Expense Tracker</div>
-                        <div class="w-50 text-alternate">Learn more about Expense Tracker and how to use it efficently.</div>
-                      </div>
-                      <div>
-                        <a href="Docs.Guides.GettingStarted.html" class="btn btn-icon btn-icon-start btn-primary mt-3 stretched-link">
-                          <i data-cs-icon="chevron-right"></i>
-                          <span>Getting Started</span>
-                        </a>
+            <!-- Introduction Banner Start -->
+            <section class="mb-5">
+                <div class="row mb-2">
+                    <div class='col'>
+                        <div class="card sh-45 h-75 bg-theme">
+                            <img src="img/illustration/database.png" class="card-img h-100 theme-filter" alt="card image">
+                            <div class="card-img-overlay mx-auto align-items-center justify-content-end bg-transparent">
+                                <h1 class="display-1">Advanced</h1>
+                                <h1 class="display-1">Configuration</h1>
+                            </div>
+                        </div>
+                    </div>       
+                </div>
+                <nav class="breadcrumb-container d-inline-block" aria-label="breadcrumb">
+                    <ul class="breadcrumb pt-0">
+                      <li class="breadcrumb-item"><a href="Docs.html">Docs</a></li>
+                      <li class="breadcrumb-item"><a href="#">Guides</a></li>
+                      <li class="breadcrumb-item"><a href="#">Advanced Configuration</a></li>
+                    </ul>
+                  </nav>
+            </section>
+            <!-- Introduction Banner End -->
+            <section class="scroll-section" id="twoRows">
+                <div class="row g-0">
+                  <div class="col mb-2 justify-content-end align-items-center text-semi-large text-muted d-none d-md-flex"></div>
+                  <div class="col-auto sw-7 d-flex flex-column justify-content-center align-items-center position-relative me-4 ms-0 ms-md-4">
+                    <div class="w-100 d-flex h-100"></div>
+                    <div class="bg-foreground sw-7 sh-7 rounded-lg shadow d-flex flex-shrink-0 justify-content-center align-items-center mt-n2 position-relative">
+                      <div class="bg-gradient-primary sw-5 sh-5 rounded-md">
+                        <div class="text-white d-flex justify-content-center align-items-center h-100">01</div>
                       </div>
                     </div>
-                  </div>
-                </div>
-                <!-- Introduction Banner End -->
-
-                <!-- Introduction List Start -->
-                <div class="col-12 col-lg-4 mb-5">
-                  <div class="scroll-out">
-                    <div class="scroll-by-count" data-count="4">
-                      <div class="card mb-2 hover-border-primary">
-                        <a href="Docs.Guides.GettingStarted.Layout.html" class="row g-0 sh-9">
-                          <div class="col-auto">
-                            <div class="sw-9 sh-9 d-inline-block d-flex justify-content-center align-items-center">
-                              <div class="fw-bold text-primary">
-                                <i data-cs-icon="layout-1"></i>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col">
-                            <div class="card-body d-flex flex-column ps-0 pt-0 pb-0 h-100 justify-content-center">
-                              <div class="d-flex flex-column">
-                                <div class="text-alternate">Learn the Layout</div>
-                                <div class="text-small text-muted">Easily find what you are looking for.</div>
-                              </div>
-                            </div>
-                          </div>
-                        </a>
-                      </div>
-                      <div class="card mb-2 hover-border-primary">
-                        <a href="Docs.Guides.GettingStarted.AddCategory.html" class="row g-0 sh-9">
-                          <div class="col-auto">
-                            <div class="sw-9 sh-9 d-inline-block d-flex justify-content-center align-items-center">
-                              <div class="fw-bold text-primary">
-                                <i data-cs-icon="diagram-1"></i>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col">
-                            <div class="card-body d-flex flex-column ps-0 pt-0 pb-0 h-100 justify-content-center">
-                              <div class="d-flex flex-column">
-                                <div class="text-alternate">Add a Category</div>
-                                <div class="text-small text-muted">Create your first Category.</div>
-                              </div>
-                            </div>
-                          </div>
-                        </a>
-                      </div>
-                      <div class="card mb-2 hover-border-primary">
-                        <a href="Docs.Guides.GettingStarted.AddExpense.html" class="row g-0 sh-9">
-                          <div class="col-auto">
-                            <div class="sw-9 sh-9 d-inline-block d-flex justify-content-center align-items-center">
-                              <div class="fw-bold text-primary">
-                                <i data-cs-icon="dollar"></i>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col">
-                            <div class="card-body d-flex flex-column ps-0 pt-0 pb-0 h-100 justify-content-center">
-                              <div class="d-flex flex-column">
-                                <div class="text-alternate">Add an Expense</div>
-                                <div class="text-small text-muted">Create a new Expense in your Category.</div>
-                              </div>
-                            </div>
-                          </div>
-                        </a>
-                      </div>
-                      <div class="card mb-2 hover-border-primary">
-                        <a href="Docs.Guides.GettingStarted.EditMode.html" class="row g-0 sh-9">
-                          <div class="col-auto">
-                            <div class="sw-9 sh-9 d-inline-block d-flex justify-content-center align-items-center">
-                              <div class="fw-bold text-primary">
-                                <i data-cs-icon="edit"></i>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col">
-                            <div class="card-body d-flex flex-column ps-0 pt-0 pb-0 h-100 justify-content-center">
-                              <div class="d-flex flex-column">
-                                <div class="text-alternate">Edit Categories & Expenses</div>
-                                <div class="text-small text-muted">Change your existing data.</div>
-                              </div>
-                            </div>
-                          </div>
-                        </a>
-                      </div>
-                      <div class="card mb-2 hover-border-primary">
-                        <a href="Docs.Guides.GettingStarted.TrackMetrics.html" class="row g-0 sh-9">
-                          <div class="col-auto">
-                            <div class="sw-9 sh-9 d-inline-block d-flex justify-content-center align-items-center">
-                              <div class="fw-bold text-primary">
-                                <i data-cs-icon="chart-4"></i>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col">
-                            <div class="card-body d-flex flex-column ps-0 pt-0 pb-0 h-100 justify-content-center">
-                              <div class="d-flex flex-column">
-                                <div class="text-alternate">Track Metrics</div>
-                                <div class="text-small text-muted">See a breakdown of your data.</div>
-                              </div>
-                            </div>
-                          </div>
-                        </a>
-                      </div>
+                    <div class="w-100 d-flex h-100 justify-content-center position-relative">
+                      <div class="line-w-1 bg-separator h-100 position-absolute"></div>
                     </div>
                   </div>
-                </div>
-                <!-- Introduction List End -->
-              </div>
-
-              <!-- Guildes Start -->
-              <div class="mb-5">
-                <h2 class="small-title">Guides</h2>
-                <div class="row g-2 row-cols-1 row-cols-xl-2 row-cols-xxl-2">
-                  <div class="col">
+                  <div class="col mb-2">
                     <div class="card h-100">
-                      <div class="card-body">
-                        <div class="text-center">
-                          <img src="img/illustration/icon-launch.png" class="theme-filter" alt="launch" />
-                          <div class="d-flex flex-column sh-5">
-                            <a href="Docs.Guides.GettingStarted.html" class="heading stretched-link">Getting Started</a>
+                      <div class="card-body d-flex flex-column justify-content-start">
+                        <div class="d-flex flex-column">
+                          <a href="Docs.Guides.Advanced.CategoryEndpoints.html" class="heading stretched-link">Category API Endpoints</a>
+                          
+                          <div class="text-muted">
+                            An API endpoint is a point at which an application program interface (API).  APIs work by sending requests for information from a web application or web server and receiving a response. 
+                            These are the endpoints used for Categories...
                           </div>
                         </div>
-                        <div class="text-muted">Learn the basics of Expense Tracker such as creating, modifying, and deleting Expenses & Categories.</div>
                       </div>
                     </div>
                   </div>
-
-                  <div class="col">
+                </div>
+                <div class="row g-0">
+                  <div class="col mb-2 justify-content-start align-items-center text-semi-large text-muted d-none d-md-flex order-md-3"></div>
+                  <div class="col-auto sw-7 d-flex flex-column justify-content-center align-items-center position-relative me-4 ms-0 ms-md-4 order-md-2">
+                    <div class="w-100 d-flex h-100 justify-content-center position-relative">
+                      <div class="line-w-1 bg-separator h-100 position-absolute"></div>
+                    </div>
+                    <div class="bg-foreground sw-7 sh-7 rounded-lg shadow d-flex flex-shrink-0 justify-content-center align-items-center mt-n2 position-relative">
+                      <div class="bg-gradient-primary sw-5 sh-5 rounded-md">
+                        <div class="text-white d-flex justify-content-center align-items-center h-100">02</div>
+                      </div>
+                    </div>
+                    <div class="w-100 d-flex h-100 justify-content-center position-relative">
+                    </div>
+                  </div>
+                  <div class="col mb-2 order-md-1">
                     <div class="card h-100">
-                      <div class="card-body">
-                        <div class="text-center">
-                          <img src="img/illustration/icon-configure.png" class="theme-filter" alt="configure" />
-                          <div class="d-flex flex-column sh-5">
-                            <a href="Docs.Guides.Advanced.html" class="heading stretched-link">Advanced Configuration</a>
+                      <div class="card-body d-flex flex-column justify-content-start">
+                        <div class="d-flex flex-column text-md-end">
+                          <a href="Docs.Guides.Advanced.TransactionEndpoints.html" class="heading stretched-link">Transactions API Endpoints</a>
+                          <div class="text-muted">
+                            An API endpoint is a point at which an application program interface (API).  APIs work by sending requests for information from a web application or web server and receiving a response. 
+                            These are the endpoints used for Transactions...
                           </div>
                         </div>
-                        <div class="text-muted">Learn about our API endpoints and how to use them to modify existing entities such as Expenses & Categories.</div>
                       </div>
                     </div>
                   </div>
-
                 </div>
-              </div>
-              <!-- Guildes End -->
-              </div>
-            </div>
-            <!-- Page Content End -->
+              </section>            
         </div>
       </main>
       <!-- Layout Footer Start -->

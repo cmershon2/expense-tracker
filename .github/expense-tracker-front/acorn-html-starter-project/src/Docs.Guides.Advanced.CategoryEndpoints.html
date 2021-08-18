@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html 
+    lang="en"
+    data-footer="true"
+    data-override='{"attributes": {"placement": "horizontal","layout": "boxed" }, "showSettings":false, "storagePrefix": "starter-project"}'
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Expense Tracker | Category API Endpoints</title>
+    <meta name="description" content="Expense Tracker Getting Started" />
+    <!-- Favicon Tags Start -->
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="img/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" href="img/favicon/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="img/favicon/favicon-16x16.png" sizes="16x16" />
+    <meta name="application-name" content="&nbsp;" />
+    <link rel="manifest" href="img/favicon/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-square150x150logo" content="img/favicon/mstile-150x150.png" />
+    <!-- Favicon Tags End -->
+    <!-- Font Tags Start -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="font/CS-Interface/style.css" />
+    <!-- Font Tags End -->
+    <!-- Vendor Styles Start -->
+    <link rel="stylesheet" href="css/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/vendor/OverlayScrollbars.min.css" />
+
+    <!-- Vendor Styles End -->
+    <!-- Template Base Styles Start -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- Template Base Styles End -->
+
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="js/base/loader.js"></script>
+  </head>
+
+  <body>
+    <div id="root">
+        <div id="nav" class="nav-container d-flex">
+            <div class="nav-content d-flex">
+              <!-- Logo Start -->
+              <div class="logo position-relative">
+                <a href="index.html">
+                  <img src="img/logo/logo_white.png" alt="logo" />
+                </a>
+              </div>
+              <!-- Logo End -->
+    
+              <!-- User Menu Start -->
+              <div class="user-container d-flex">
+                <a href="#" class="d-flex user position-relative" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <img class="profile" alt="profile" src="img/profile/main-prof.png" />
+                  <div class="name" id="user-name">{User's Full  Name}</div>
+                </a>
+                <div class="dropdown-menu dropdown-menu-end user-menu wide">
+                  <div class="row mb-1 ms-0 me-0">
+                    <div class="col-12 ps-1 mb-2">
+                      <div class="text-extra-small text-primary">GENERAL</div>
+                    </div>
+                    <div class="col-6 ps-1 pe-1">
+                      <ul class="list-unstyled">
+                        <li>
+                          <a href="Docs.Guides.GettingStarted.html">
+                            <i data-cs-icon="help" class="me-2" data-cs-size="17"></i>
+                            <span class="align-middle">Help</span>
+                          </a>
+                        </li>
+                        
+                      </ul>
+                    </div>
+                    <div class="col-6 pe-1 ps-1">
+                      <ul class="list-unstyled">
+                        <li>
+                          <a href="Docs.html">
+                            <i data-cs-icon="document-full" class="me-2" data-cs-size="17"></i>
+                            <span class="align-middle">Docs</span>
+                          </a>
+                        </li>
+                    </div>
+                  </div>
+                  <div class="row mb-1 ms-0 me-0">
+                    <div class="col-12 p-1 mb-3 pt-3">
+                      <div class="separator-light"></div>
+                    </div>
+                    <div class="col-6 pe-1 ps-1">
+                      <ul class="list-unstyled">
+                        <li>
+                          <a href="" onClick="tokenStorage.signOut()">
+                            <i data-cs-icon="logout" class="me-2" data-cs-size="17"></i>
+                            <span class="align-middle">Logout</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <!-- User Menu End -->
+    
+              <!-- Icons Menu Start -->
+              <ul class="list-unstyled list-inline text-center menu-icons">
+                <li class="list-inline-item">
+                  <a href="#" data-bs-toggle="modal" data-bs-target="#searchPagesModal">
+                    <i data-cs-icon="search" data-cs-size="18"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#" id="pinButton" class="pin-button">
+                    <i data-cs-icon="lock-on" class="unpin" data-cs-size="18"></i>
+                    <i data-cs-icon="lock-off" class="pin" data-cs-size="18"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#" id="colorButton">
+                    <i data-cs-icon="light-on" class="light" data-cs-size="18"></i>
+                    <i data-cs-icon="light-off" class="dark" data-cs-size="18"></i>
+                  </a>
+                </li>
+              </ul>
+              <!-- Icons Menu End -->
+    
+              <!-- Menu Start -->
+              <div class="menu-container flex-grow-1">
+                <ul id="menu" class="menu">
+                  <li>
+                    <a href="Overview.html">
+                      <i data-cs-icon="board-2" class="icon" data-cs-size="18"></i>
+                      <span class="label">Overview</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="Docs.html">
+                      <i data-cs-icon="document-full" class="icon" data-cs-size="18"></i>
+                      <span class="label">Docs</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- Menu End -->
+    
+              <!-- Mobile Buttons Start -->
+              <div class="mobile-buttons-container">
+                <!-- Scrollspy Mobile Button Start -->
+                <a href="#" id="scrollSpyButton" class="spy-button" data-bs-toggle="dropdown">
+                  <i data-cs-icon="menu-dropdown"></i>
+                </a>
+                <!-- Scrollspy Mobile Button End -->
+    
+                <!-- Scrollspy Mobile Dropdown Start -->
+                <div class="dropdown-menu dropdown-menu-end" id="scrollSpyDropdown"></div>
+                <!-- Scrollspy Mobile Dropdown End -->
+    
+                <!-- Menu Button Start -->
+                <a href="#" id="mobileMenuButton" class="menu-button">
+                  <i data-cs-icon="menu"></i>
+                </a>
+                <!-- Menu Button End -->
+              </div>
+              <!-- Mobile Buttons End -->
+            </div>
+            <div class="nav-shadow"></div>
+          </div>
+
+          <main>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <!-- Title Start -->
+                        <section class="scroll-section" id="title">
+                            <div class="page-title-container">
+                            <h1 class="mb-0 pb-0 display-4">Category API Endpoints</h1>
+                            <nav class="breadcrumb-container d-inline-block" aria-label="breadcrumb">
+                                <ul class="breadcrumb pt-0">
+                                <li class="breadcrumb-item"><a href="Docs.html">Docs</a></li>
+                                <li class="breadcrumb-item"><a href="#">Guides</a></li>
+                                <li class="breadcrumb-item"><a href="Docs.Guides.Advanced.html">Advanced Configuration</a></li>
+                                <li class="breadcrumb-item"><a href="#">Category API Endpoints</a></li>
+                                </ul>
+                            </nav>
+                            </div>
+                        </section>
+                        <!-- Title End -->
+    
+                        <!-- Content Start -->
+                        <div>
+                            <div class="card mb-5">
+                                <div class="card-body">
+                                    <p class="mb-0">
+                                      An API endpoint is a point at which an application program interface (API).  APIs work by sending requests for information from a web application or web server and receiving a response. These are the endpoints used for Categories.
+                                    </p>
+                                </div>
+                            </div>
+    
+                            <!-- Endpoints Start -->
+                            <section class="scroll-section" id="endpoints">
+                            <h2 class="small-title">Category Endpoints</h2>
+                            <div class="card mb-5">
+                                <div class="card-body">
+                                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                                        <div class="accordion-item">
+                                          <div class="accordion-header" id="flush-headingOne">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                              <div class="row w-100">
+                                                <div class="col-2">
+                                                  <span class="badge bg-success text-uppercase">GET</span>
+                                                </div>
+                                                <div class="col">
+                                                  <code>expense.projecthost.dev/api/categories</code>
+                                                </div>
+                                                <div class="col-3">
+                                                  Get All Categories
+                                                </div>
+                                              </div>
+                                            </button>
+                                          </div>
+                                          <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample" style="">
+                                            <div class="accordion-body">
+                                              <p class="mb-2">
+                                                This endpoint will return an array of each category in a given account.
+                                              </p>
+                                              <ul>
+                                                <li><span class="text-primary">Content-Type:</span> application/json</li>
+                                                <li><span class="text-primary">Accept:</span> application/json</li>
+                                                <li><span class="text-primary">Authentication:</span> {USER_TOKEN}</li>
+                                              </ul>
+                                              <p class="mb-2">
+                                                An example of this can be seen below:
+                                              </p>
+                                              <pre class="lolight px-4 py-3 bg-light rounded-md">
+[
+  {
+    "categoryId": 1,
+    "userId": 1,
+    "title": "Business Expenses",
+    "description": "Expenses for the business",
+    "icon": "shop",
+    "totalExpense": 329.0
+  },
+  {
+    "categoryId": 2,
+    "userId": 1,
+    "title": "Food & Drinks",
+    "description": "All food and drinks",
+    "icon": "cutlery",
+    "totalExpense": 87.42
+  },
+  {
+    "categoryId": 3,
+    "userId": 1,
+    "title": "Utilities",
+    "description": "A list of monthly utility expenses such as water, electricity, etc.",
+    "icon": "tool",
+    "totalExpense": 209.63
+  }
+]</pre>
+                                              <div class="clearfix mb-5"></div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                          <div class="accordion-header" id="flush-headingTwo">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                              <div class="row w-100">
+                                                <div class="col-2">
+                                                  <span class="badge bg-success text-uppercase">GET</span>
+                                                </div>
+                                                <div class="col">
+                                                  <code>expense.projecthost.dev/api/categories/{Category_Id}</code>
+                                                </div>
+                                                <div class="col-3">
+                                                  Get a single Category
+                                                </div>
+                                              </div>
+                                            </button>
+                                          </div>
+                                          <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                            <div class="accordion-body">
+                                              <p class="mb-2">
+                                                This endpoint will return a singular category entity based on the defined {Category_Id}.
+                                              </p>
+                                              <ul>
+                                                <li><span class="text-primary">Content-Type:</span> application/json</li>
+                                                <li><span class="text-primary">Accept:</span> application/json</li>
+                                                <li><span class="text-primary">Authentication:</span> {USER_TOKEN}</li>
+                                              </ul>
+                                              <p class="mb-2">
+                                                An example of this can be seen below:
+                                              </p>
+                                              <pre class="lolight px-4 py-3 bg-light rounded-md">
+{
+    "categoryId": 1,
+    "userId": 1,
+    "title": "Business Expenses",
+    "description": "Expenses for the business",
+    "icon": "shop",
+    "totalExpense": 655.0
+}</pre>
+                                              <div class="clearfix mb-5"></div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                          <div class="accordion-header" id="flush-headingThree">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                                              <div class="row w-100">
+                                                <div class="col-2">
+                                                  <span class="badge bg-warning text-uppercase">POST</span>
+                                                </div>
+                                                <div class="col">
+                                                  <code>expense.projecthost.dev/api/categories</code>
+                                                </div>
+                                                <div class="col-3">
+                                                 Create a new Category
+                                                </div>
+                                              </div>
+                                            </button>
+                                          </div>
+                                          <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                                            <p class="mb-2">
+                                              This endpoint will create a new category entity based on the payload. The body of the request must be JSON.
+                                            </p>
+                                            <ul>
+                                              <li><span class="text-primary">Content-Type:</span> application/json</li>
+                                              <li><span class="text-primary">Accept:</span> application/json</li>
+                                              <li><span class="text-primary">Authentication:</span> {USER_TOKEN}</li>
+                                            </ul>
+                                            <p class="mb-2">
+                                              An example of the body can be seen below:
+                                            </p>
+                                            <pre class="lolight px-4 py-3 bg-light rounded-md">
+{
+    "title": "Utilities",
+    "description": "A list of monthly utility expenses such as water, electricity, etc.",
+    "icon": "tool"
+}</pre>
+                                            <p class="mb-2">
+                                              When a category is successfully created, it will return the following response:
+                                            </p>
+                                            <pre class="lolight px-4 py-3 bg-light rounded-md">
+{
+  "categoryId": 7,
+  "userId": 1,
+  "title": "Utilities",
+  "description": "A list of monthly utility expenses such as water, electricity, etc.",
+  "icon": "tool",
+  "totalExpense": 0.0
+}</pre>
+                                          <div class="clearfix mb-5"></div>
+                                          </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <div class="accordion-header" id="flush-headingFour">
+                                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                                                <div class="row w-100">
+                                                  <div class="col-2">
+                                                    <span class="badge bg-primary text-uppercase">PUT</span>
+                                                  </div>
+                                                  <div class="col">
+                                                    <code>expense.projecthost.dev/api/categories/{Category_Id}</code>
+                                                  </div>
+                                                  <div class="col-3">
+                                                   Update an existing Category
+                                                  </div>
+                                                </div>
+                                              </button>
+                                            </div>
+                                            <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+                                                <div class="accordion-body">
+                                                    <p class="mb-2">
+                                                      This endpoint will update an existing category entity based on the defined {Category_Id} and payload. The body of the request must be JSON.
+                                                    </p>
+                                                    <ul>
+                                                      <li><span class="text-primary">Content-Type:</span> application/json</li>
+                                                      <li><span class="text-primary">Accept:</span> application/json</li>
+                                                      <li><span class="text-primary">Authentication:</span> {USER_TOKEN}</li>
+                                                    </ul>
+                                                    <p class="mb-2">
+                                                      An example of the body can be seen below:
+                                                    </p>
+                                            <pre class="lolight px-4 py-3 bg-light rounded-md">
+{
+    "title": "Utilities",
+    "description": "A list of monthly utility expenses such as water, electricity, etc.",
+    "icon": "tool"
+}</pre>
+                                            <p class="mb-2">
+                                              When a category is successfully updated, it will return the following response:
+                                            </p>
+                                            <pre class="lolight px-4 py-3 bg-light rounded-md">
+{
+  "success": true
+}</pre>
+                                          <div class="clearfix mb-5"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <div class="accordion-header" id="flush-headingFive">
+                                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+                                                <div class="row w-100">
+                                                  <div class="col-2">
+                                                    <span class="badge bg-danger text-uppercase">DELETE</span>
+                                                  </div>
+                                                  <div class="col">
+                                                    <code>expense.projecthost.dev/api/categories/{Category_Id}</code>
+                                                  </div>
+                                                  <div class="col-3">
+                                                   Delete a Category
+                                                  </div>
+                                                </div>
+                                              </button>
+                                            </div>
+                                            <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
+                                                <div class="accordion-body">
+                                                  <p class="mb-2">
+                                                    This endpoint will delete an existing category entity based on the defined {Category_Id}.
+                                                  </p>
+                                                  <ul>
+                                                    <li><span class="text-primary">Content-Type:</span> application/json</li>
+                                                    <li><span class="text-primary">Accept:</span> application/json</li>
+                                                    <li><span class="text-primary">Authentication:</span> {USER_TOKEN}</li>
+                                                  </ul>
+                                                  <p class="mb-2">
+                                                    When a category is successfully deleted, it will return the following response:
+                                                  </p>
+                                          <pre class="lolight px-4 py-3 bg-light rounded-md">
+{
+  "success": true
+}</pre>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </section>
+                            <!-- Endpoints End -->
+
+                            <!-- Object Start -->
+                            <section class="scroll-section" id="object">
+                              <h2 class="small-title">Category Objects</h2>
+                              <div class="card mb-5">
+                                  <div class="card-body">
+                                      <p class='mb-2'>
+                                          The Overview page contains 3 main sections which is the Categories section, the Expenses section, and the Category Breakdown section.
+                                      </p>
+                                      <p class="mb-2">
+                                          To learn more about each section, select it from the menu below:
+                                      </p>
+                                      <div class="table-responsive-sm mb-5">
+                                        <table class="table">
+                                          <thead>
+                                            <tr>
+                                              <th scope="col">Attribute</th>
+                                              <th scope="col">Type</th>
+                                              <th scope="col">Description</th>
+                                              <th scope="col">Example</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr>
+                                              <td>categoryId</td>
+                                              <td>Integer</td>
+                                              <td>The categoryId is a unique id used to index each category. This is generated by the system.</td>
+                                              <td>53</td>
+                                            </tr>
+                                            <tr>
+                                              <td>userId</td>
+                                              <td>Integer</td>
+                                              <td>The userId is a unique id associated with each user. This is added by the system.</td>
+                                              <td>42</td>
+                                            </tr>
+                                            <tr>
+                                              <td>title</td>
+                                              <td>String</td>
+                                              <td>The title is a 20 character string used as the title of a given category.</td>
+                                              <td>"Utilities"</td>
+                                            </tr>
+                                            <tr>
+                                              <td>description</td>
+                                              <td>String</td>
+                                              <td>The description is a short couple sentence that describes the category in 255 characters</td>
+                                              <td>"A category for all general utilities"</td>
+                                            </tr>
+                                            <tr>
+                                              <td>icon</td>
+                                              <td>String</td>
+                                              <td>The icon is a minimalistic icon that will represent the category.</td>
+                                              <td>"tool"</td>
+                                            </tr>
+                                            <tr>
+                                              <td>totalExpense</td>
+                                              <td>Float</td>
+                                              <td>The totalExpense is the total of all expenses in the category. This is generated by the system.</td>
+                                              <td>"Utilities"</td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </div>
+                                    
+                                  </div>
+                              </div>
+                              </section>
+                              <!-- Object End -->
+
+                            <!-- Next Start -->
+                            <section class="scroll-section" id="continue">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="card mb-5 hover-scale-up cursor-pointer">
+                                            <div class="card-body">
+                                                <div class="row align-items-center">
+                                                    <div class="col-auto d-flex justify-content-start">
+                                                        <div class="sh-5 sw-5 border border-dashed rounded-xl">
+                                                          <div class="bg-separator w-100 h-100 rounded-xl d-flex justify-content-center align-items-center">
+                                                              <i data-cs-icon="chevron-left" class="text-white"></i>
+                                                          </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col d-flex justify-content-start">
+                                                        <h5>Previous Section: Category API Endpoints</h5>
+                                                    </div>
+                                                </div>
+                                                <a href="Docs.Guides.Advanced.html" class="stretched-link"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="card mb-5 hover-scale-up cursor-pointer">
+                                            <div class="card-body">
+                                                <div class="row align-items-center">
+                                                    <div class="col d-flex justify-content-end">
+                                                        <h5>Next Section: Transactions API Endpoints</h5>
+                                                      </div>
+                                                    <div class="col-auto d-flex justify-content-end">
+                                                        <div class="sh-5 sw-5 border border-dashed rounded-xl">
+                                                          <div class="bg-separator w-100 h-100 rounded-xl d-flex justify-content-center align-items-center">
+                                                              <i data-cs-icon="chevron-right" class="text-white"></i>
+                                                          </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <a href="Docs.Guides.Advanced.TransactionEndpoints.html" class="stretched-link"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <!-- Next End -->
+    
+                        </div>
+                        <!-- Content End -->
+                    </div>
+    
+                <!-- Scrollspy Start -->
+                <div class="col-md-auto d-none d-lg-block" id="scrollSpyMenu">
+                  <ul class="nav flex-column">
+                    <li>
+                      <a class="nav-link" href="#title">
+                        <i data-cs-icon="chevron-right"></i>
+                        <span>Title</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="nav-link" href="#endpoints">
+                        <i data-cs-icon="chevron-right"></i>
+                        <span>Category Endpoints</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="nav-link" href="#object">
+                        <i data-cs-icon="chevron-right"></i>
+                        <span>Category Objects</span>
+                      </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#continue">
+                          <i data-cs-icon="chevron-right"></i>
+                          <span>Continue</span>
+                        </a>
+                      </li>
+                  </ul>
+                </div>
+                <!-- Scrollspy End -->
+              </div>
+            </div>
+          </main>
+    
+      <!-- Layout Footer Start -->
+      <footer>
+        <div class="footer-content">
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-sm-6">
+                <p class="mb-0 text-muted text-medium">Casey Mershon <span id="page-year">2021</span></p>
+              </div>
+              <div class="col-sm-6 d-none d-sm-block">
+                <ul class="breadcrumb pt-0 pe-0 mb-0 float-end">
+                  <li class="breadcrumb-item mb-0 text-medium"><a href="Legal.html" class="btn-link">Terms & Conditions</a></li>
+                  <li class="breadcrumb-item mb-0 text-medium"><a href="Docs.html" class="btn-link">Docs</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- Layout Footer End -->
+    </div>
+
+    <!-- Search Modal Start -->
+    <div class="modal fade modal-under-nav modal-search modal-close-out" id="searchPagesModal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header border-0 p-0">
+            <button type="button" class="btn-close btn btn-icon btn-icon-only btn-foreground" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body ps-5 pe-5 pb-0 border-0">
+            <input id="searchPagesInput" class="form-control form-control-xl borderless ps-0 pe-0 mb-1 auto-complete" type="text" autocomplete="off" />
+          </div>
+          <div class="modal-footer border-top justify-content-start ps-5 pe-5 pb-3 pt-3 border-0">
+            <span class="text-alternate d-inline-block m-0 me-3">
+              <i data-cs-icon="arrow-bottom" data-cs-size="15" class="text-alternate align-middle me-1"></i>
+              <span class="align-middle text-medium">Navigate</span>
+            </span>
+            <span class="text-alternate d-inline-block m-0 me-3">
+              <i data-cs-icon="arrow-bottom-left" data-cs-size="15" class="text-alternate align-middle me-1"></i>
+              <span class="align-middle text-medium">Select</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Search Modal End -->
+
+    <!-- Vendor Scripts Start -->
+    <script src="js/vendor/jquery-3.5.1.min.js"></script>
+    <script src="js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="js/vendor/OverlayScrollbars.min.js"></script>
+    <script src="js/vendor/autoComplete.min.js"></script>
+    <script src="js/vendor/clamp.min.js"></script>
+    <script src="js/vendor/lolight-1.3.0.min.js"></script>
+
+    <!-- Vendor Scripts End -->
+
+    <!-- Template Base Scripts Start -->
+    <script src="js/auth/authentication.js"></script>
+    <script src="js/auth/token-storage.js"></script>
+    <script src="font/CS-Line/csicons.min.js"></script>
+    <script src="js/base/helpers.js"></script>
+    <script src="js/base/globals.js"></script>
+    <script src="js/base/nav.js"></script>
+    <script src="js/base/search.js"></script>
+    <script src="js/base/settings.js"></script>
+    <script src="js/base/init.js"></script>
+    <!-- Template Base Scripts End -->
+    <!-- Page Specific Scripts Start -->
+
+    <script src="js/common.js"></script>
+    <script src="js/scripts.js"></script>
+    <!-- Page Specific Scripts End -->
+  </body>
+</html>
