@@ -1,6 +1,3 @@
-# expense-tracker
-A RESTful API service built on the Springboot framework to help track expenses.
-
 # Expense Tracker
 Expense Tracker is a simple web application that helps you track your expenses. It consists of a Spring Boot API backend and an HTML frontend. This project was a great introduction to building web applications using Spring Boot and HTML.
 
