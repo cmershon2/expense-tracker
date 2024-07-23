@@ -12,4 +12,4 @@ Expense Tracker is a simple web application that helps you track your expenses. 
 * Spring Boot: Backend API framework for building robust and scalable web applications.
 * HTML: Frontend markup language for creating the user interface.
 * Bootstrap: CSS framework for creating responsive and visually appealing UI components.
-* MySQL: Relational database for storing user and expense data.
+* Postgres: Relational database for storing user and expense data.
